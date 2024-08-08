@@ -1,8 +1,10 @@
+let isMobile = false;
 const cursor = $('#cursor');
 let mouseX = 0, mouseY = 0;
 let cursorX = 0, cursorY = 0;
 let targetScale = 1;
 let growInterval;
+
 
 $(document).on('mousemove', function(e) {
     mouseX = e.clientX;
@@ -48,7 +50,30 @@ function animate() {
         top: cursorY + 'px'
     });
 
-    requestAnimationFrame(animate);
+    if (!isMobile) {
+      requestAnimationFrame(animate);
+    } else {
+      cursor.css({
+        display: 'none'
+      });
+    }
 }
 
-animate();
+
+function checkIfMobile() {
+  if ($(window).width() <= 768) {
+      isMobile = true;
+  } else {
+      isMobile = false;
+      cursor.css({
+        display: 'block'
+      });
+      animate();
+  }
+}
+
+$(window).on('resize', function() {
+  checkIfMobile()
+});
+
+checkIfMobile();

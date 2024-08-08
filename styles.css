@@ -21,9 +21,11 @@ h1 {
     font-family: 'Syne-Bold';
     font-size: 3rem;
     margin: 10px;
+    text-align: center;
 }
 
 p {
+    text-align: center;
     font-family: 'Syne-Regular';
     font-size: 1rem;
 }
