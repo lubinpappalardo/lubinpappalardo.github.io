@@ -11,13 +11,12 @@
     <meta name="color-scheme" content="light only">
 
     <!-- Icon -->
-    <!-- <link rel="icon" type="image/png" href="" media="(prefers-color-scheme: light)" /> -->
-
-    <!-- <link rel="icon" type="image/png" href="" media="(prefers-color-scheme: dark)" /> -->
+    <link rel="icon" type="image/png" href="assets/img/lp_light.png" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/img/lp_dark.png" media="(prefers-color-scheme: dark)" />
 
     <!--apple-->
-    <!-- <link rel="apple-touch-icon" href=""> -->
-    <!-- <link rel="apple-touch-startup-image" href=""> -->
+    <link rel="apple-touch-icon" href="assets/img/lp_light.png">
+    <link rel="apple-touch-startup-image" href="assets/img/lp_light.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -28,12 +27,37 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="index.js" defer></script>
 </head>
-<body>
+<body class='light_mode'>
 
-    <div id="cursor"></div>
-    
-    <h1>Lubin Pappalardo</h1>
-    <p>This website is still under construction... come back soon!</p>
+    <div id="leftLine"></div>
+
+    <navbar id="navbar">
+
+        <div class='nav_logo'>
+            <img src="assets/svg/lp_light.svg" alt="Lubin Pappalardo">
+        </div>
+
+        <div class='nav_links'>
+            <a href="#section_home" class='active'>Home</a>
+            <a href="#section_about">Portfolio</a>
+            <a href="#section_projects">My CV</a>
+            <a href="#section_contact">Contact</a>
+        </div>
+
+        <div class="nav_language">
+            <p>EN</p>
+            <div class='language_indicator'>
+                <div class="active"></div>
+                <div></div>
+            </div>
+            <p>FR</p>
+        </div>
+    </navbar>
+
+
+    <section id="section_home">
+    </section>
+
 
 </body>
 </html>

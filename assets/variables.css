@@ -1,12 +1,28 @@
 :root {
+    /* --- Colors --- */
+
     --black: #16171D;
     --darkslategray: #2D2F39;
 
-    --white: #FAFAFA;
+    --white: #ffffff;
+    --lightgray: hsl(0, 0%, 80%);
 
     --lightsalmon: #FF9966;
     --salmon: #DD5C4B;
 
     --cadetblue: #22A3B4;
     --steelblue: #02699A;
+
+    --textLightMode: hsl(0, 0%, 20%);
+    --textSecondarytLightMode: hsl(0, 0%, 50%);
+
+    --textDarkMode: hsl(0, 0%, 80%);
+    --textSecondaryDarkMode: hsl(0, 0%, 50%);
+
+    /* --- Other Values --- */
+
+    --navbarHeight: 80px;
+    --leftLineOffset: 60px;
+
+    --lineThickness: 1px;
 }
