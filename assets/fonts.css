@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Syne-Bold';
+    src: url('fonts/Syne-Bold.woff2');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Syne-Regular';
+    src: url('fonts/Syne-Regular.woff2');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
