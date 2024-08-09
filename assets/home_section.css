@@ -1,0 +1,127 @@
+#home_section {
+    padding: 40px;
+    padding-top: calc(var(--navbarHeight) + 40px);
+    padding-left: calc(var(--leftLineOffset) + 40px);
+    display: flex;
+
+    header {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin-top: 5%;
+
+        .header_intro {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: var(--textSize);
+            color: var(--secondaryText);
+
+            img {
+                height: 20px;
+            }
+        }
+
+        .header_main {
+            --headerMainFontSize: 5rem;
+            display: flex;
+            flex-direction: column;
+
+            h2:nth-child(1) { /* "Lubin" */
+                font-size: var(--headerMainFontSize);
+                margin: 0;
+            }
+
+            h2:nth-child(2) { /* "Pappalardo" */
+                font-size: var(--headerMainFontSize);
+                margin: 0;
+                margin-top: calc(var(--headerMainFontSize) / -4);
+            }
+
+            span {
+                margin-left: 20px;
+                font-family: 'Syne-Regular', sans-serif;
+                font-weight: normal;
+                font-size: var(--textSize);
+                color: var(--secondaryText);
+            }
+        }
+
+        .header_desc {
+            width: 80%;
+            margin-top: 20px;
+            color: var(--secondaryText);
+            font-size: var(--textSize);
+
+            img {
+                width: 20px;
+                margin: 0 2px;
+                transform: translateY(20%);
+            }
+        }
+    }
+
+    #header_img {
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+        /* border: 1px solid red; */
+
+        #header_img_fade {
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            bottom: 0;
+            width: 200%;
+            height: 20%;
+            background: linear-gradient(0deg, var(--background), transparent);
+        }
+
+        img {
+            width: 100%;
+            /* opacity: 0; */
+        }
+
+        #header_circle {
+            position: absolute;
+            z-index: -1;
+            right: 45%;
+            bottom: 45%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, var(--color1), var(--color2));
+            display: grid;
+            place-items: center;
+            transition: scale .5s;
+
+            svg {
+                /* border: 1px solid red; */
+                width: 130%;
+                height: 130%;
+                transform: rotate(-120deg) translate(1%, -2%);
+                animation: rotate-in 1s 2s cubic-bezier(0,0,.35,1) forwards; 
+                text {
+                    font-size: 24px;
+                    letter-spacing: 3px;
+                    opacity: 0.5;
+                }
+                  
+            }
+        }
+    }
+
+    &:active {
+        #header_circle {
+            scale: 1.1;
+        }
+    }
+}
+
+@keyframes rotate-in {
+    from { transform: rotate(-120deg) translate(1%, -2%); }
+    to { transform: rotate(-20deg) translate(1%, -2%); }
+}
