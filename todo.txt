@@ -1,0 +1,34 @@
+08/08
+Started working on it, basic layout, navbar
+
+-----------------
+09/08
+Worked on adding every design elements to the page
+
+Todo:
+[X] - "LP" logo doesn't look right, not aligned properly
+[?] - redeisgn hobbies, maybe align under header
+[?] - contact me needs interaction
+[] - navbar links need interaction
+[] - mobile menu
+[...] - overall responsive design
+[] - light/dark mode icon hover effect ?
+X - Done    ? - Thinking about it   ... - In progress   [] - Not started    / - Canceled
+
+-----------------
+10/08
+Aligned the "LP" logo as I decided to delete the lines.
+I made it more responsive, fixed how the image and circle behind behave and are spaced
+
+Todo:
+    Email, "Porfolio 2024" are two elements that needs to be placed 
+    On the navbar, the circle, bottom right...
+
+    I need to think also about where to place the hobbies carousel cuz original placement isn't good
+    --> what importance should I give it?
+    --> should it be more important than my name?
+    --> Hierarchy
+
+    Should go back to Figma to rething the design
+
+    Same list that 09/08

@@ -9,17 +9,27 @@
     border-bottom: var(--lineThickness) solid var(--lightBackground);
 
     display: flex;
+    align-items: center;
+
+    padding: 0 var(--padding);
 }
 
 #navbar .nav_logo {
     position: relative;
-    width: var(--leftLineOffset);
+    /* width: var(--leftLineOffset); */
     height: 100%;
     display: grid;
     place-items: center;
+    /* border: 1px solid red; */
 
-    img {
-        width: 40%;
+    svg {
+        height: 40%;
+        width: auto;
+        /* height: auto; */
+
+        path {
+            fill: var(--text);
+        }
     }
 }
 
@@ -29,6 +39,10 @@
     align-items: center;
     gap: 40px;
     padding: 0 40px;
+
+    @media only screen and (max-width: 1000px) {
+        display: none;
+    }
     
     a {
         color: var(--text);
@@ -38,6 +52,7 @@
             text-decoration: underline;
         }
     }
+    
 }
 
 #navbar .nav_language {
@@ -48,17 +63,55 @@
     gap: 8px;
     padding: 0 40px;
 
+    @media only screen and (max-width: 1000px) {
+        display: none;
+    }
+
+    p {
+        cursor: pointer;
+    }
+
     .language_indicator {
         display: flex;
- 
-        div {
+        height: 2px;
+        width: 40px;
+        background: var(--lightBackground);
+        overflow: hidden;
+
+        .active {
             height: 2px;
             width: 20px;
-            background: var(--lightBackground);
-
-            &.active {
-                background: var(--color1);
-            }
+            background: var(--color1);
+            transition: transform .5s cubic-bezier(.63,-0.43,.3,1);
         }
+    }
+
+    &:has(.language_fr:hover) .active {
+        transform: translate(100%);
+    }
+ 
+}
+
+#navbar .nav_contactme {
+    padding: 10px 20px;
+    /* margin-right: 40px; */
+    border-radius: 5px;
+    background: var(--text);
+    color: var(--background);    
+
+    @media only screen and (max-width: 1000px) {
+        display: none;
+    }
+}
+
+#hamburger_menu {
+    display: none;
+
+    @media only screen and (max-width: 1000px) {
+        display: flex;
+        cursor: pointer;
+        margin-left: auto;
+
+        height: 40px;
     }
 }

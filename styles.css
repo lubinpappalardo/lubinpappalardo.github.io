@@ -14,11 +14,11 @@ html {
     overflow-x: hidden;
 }
 
-body.light_mode{
+body {
     --background: var(--white);
     --lightBackground: var(--lightgray);
     --text: var(--textLightMode);
-    --secondaryText: var(--textSecondarytLightMode);
+    --secondaryText: var(--textSecondaryLightMode);
     --color1: var(--salmon);
     --color2: var(--lightsalmon);
 }
@@ -27,7 +27,7 @@ body.dark_mode{
     --background: var(--black);
     --lightBackground: var(--darkslategray);
     --text: var(--textDarkMode);
-    --secondaryText: var(--textSecondarytDarkMode);
+    --secondaryText: var(--textSecondaryDarkMode);
     --color1: var(--cadetblue);
     --color2: var(--steelblue);
 }

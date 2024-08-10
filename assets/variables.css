@@ -14,7 +14,7 @@
     --steelblue: #02699A;
 
     --textLightMode: hsl(0, 0%, 20%);
-    --textSecondarytLightMode: hsl(0, 0%, 50%);
+    --textSecondaryLightMode: hsl(0, 0%, 50%);
 
     --textDarkMode: hsl(0, 0%, 80%);
     --textSecondaryDarkMode: hsl(0, 0%, 50%);
@@ -24,7 +24,23 @@
     --navbarHeight: 80px;
     --leftLineOffset: 60px;
 
-    --lineThickness: 1px;
+    --lineThickness: 0px;
 
+    --headerMainFontSize: 5rem;
     --textSize: 18px;
+    --padding: 40px;
+
+    @media only screen and (max-width: 1000px) {
+        --leftLineOffset: 0px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    :root {
+        --padding: 20px;
+        --headerMainFontSize: 3rem;
+        --navbarHeight: 60px;
+        --leftLineOffset: 0px;
+        --textSize: 16px;
+    }
 }
