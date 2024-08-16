@@ -5,31 +5,27 @@
 
 * {
     box-sizing: border-box;
-    font-family: "Syne-Regular", sans-serif;
+    font-family: "BDOGroteskLight", Arial, Helvetica, sans-serif;
 }
   
 html {
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 body {
-    --background: var(--white);
-    --lightBackground: var(--lightgray);
-    --text: var(--textLightMode);
-    --secondaryText: var(--textSecondaryLightMode);
-    --color1: var(--salmon);
-    --color2: var(--lightsalmon);
+    --background: var(--black);
+    --lightBackground: var(--darkgrey);
+    --text: var(--textDarkMode);
+    --secondaryText: var(--secondaryTextDarkMode);
 }
 
-body.dark_mode{
-    --background: var(--black);
-    --lightBackground: var(--darkslategray);
-    --text: var(--textDarkMode);
-    --secondaryText: var(--textSecondaryDarkMode);
-    --color1: var(--cadetblue);
-    --color2: var(--steelblue);
+body.light_mode {
+    --background: var(--white);
+    --lightBackground: var(--lightgrey);
+    --text: var(--textLightMode);
+    --secondaryText: var(--secondaryTextLightMode);
 }
 
 body {
@@ -38,10 +34,11 @@ body {
     margin: 0;
     background: var(--background);
     color: var(--text);
+    font-size: var(--textSize);
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 @media (max-width: 767px) {
@@ -51,22 +48,14 @@ body {
 }
 
 h1, h2, h3, h4, h1 *, h2 *, h3 *, h4 * {
-    font-family: "Syne-Bold", sans-serif;
+    font-family: "BoogyBrut", 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
 }
 
 section {
     position: relative;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
-}
-
-#leftLine {
-    position: absolute;
-    z-index: 9999;
-    top: 0;
-    left: var(--leftLineOffset);
-    width: var(--lineThickness);
-    height: 100%;
-    background: var(--lightBackground);
+    /* overflow: hidden; */
 }

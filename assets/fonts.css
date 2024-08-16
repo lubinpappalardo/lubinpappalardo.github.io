@@ -1,15 +1,23 @@
 @font-face {
-    font-family: 'Syne-Bold';
-    src: url('fonts/Syne-Bold.woff2');
+    font-family: 'BDOGrotesk';
+    src: url('fonts/BDOGrotesk.woff2');
     font-style: normal;
     font-weight: normal;
     text-rendering: optimizeLegibility;
 }
 
 @font-face {
-    font-family: 'Syne-Regular';
-    src: url('fonts/Syne-Regular.woff2');
+    font-family: 'BDOGroteskLight';
+    src: url('fonts/BDOGrotesk.woff2');
     font-style: normal;
-    font-weight: normal;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'BoogyBrut';
+    src: url('fonts/BoogyBrut.woff2');
+    font-style: normal;
+    font-weight: 400;
     text-rendering: optimizeLegibility;
 }

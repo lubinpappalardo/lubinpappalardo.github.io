@@ -32,3 +32,43 @@ Todo:
     Should go back to Figma to rething the design
 
     Same list that 09/08
+
+-----------------
+11/08
+Downloaded Jquery to host local
+Added the animated hamburger menu icon to cross icon animation (I had to remake it)
+Set up the mobile menu open/close behavior
+"Porfolio 2024" and email placement sorted out
+Made some design variations on Figma on what to do with the hobby carousel
+
+-----------------
+12/08
+Still stuck with the layout
+Spent a lot of time on figma
+
+-----------------
+13/08
+Same.
+
+-----------------
+14/08
+lol
+
+-----------------
+15/08
+Ok I have something (only for header still).
+I'll have to redo everything but that's fine.
+Starting dev tomorrow
+
+My only worry is that I do need a better picture, but changing it might lead to redesign... Definetly not as radical as this but a change in layout 
+
+-----------------
+16/08
+I've been coding for 4 hours straight so I think I'm done for today
+Overall the header is done, I added interactions, etc
+
+TODO:
+- Mobile Menu
+- Maybe improver responsive design
+
+Also I think I'll have to do the scroll animations via JS and not via CSS cause not being able to use overflow: hidden is causing too many problems

@@ -24,26 +24,20 @@
     <link rel="stylesheet" href="styles.css">
 
     <!--script-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/jquery.js"></script>
     <script src="index.js" defer></script>
 </head>
 <body>
 
-    <div id="leftLine"></div>
-
     <navbar id="navbar">
-
-        <div class='nav_logo'>
-            <svg width="336" height="423" viewBox="0 0 336 423" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V300H122V422.14H179.78V300L234.564 299.997C273.084 299.997 296.196 290.569 312.46 273.426C327.44 257.997 336 234.854 336 211.283C336 187.711 327.44 164.569 312.46 149.14C295.768 131.569 273.084 122.14 234.564 122.14H122V248.571H57.7674V0H0ZM231.996 248.569H179.78V173.569H231.996C251.684 173.569 261.528 178.283 268.376 185.569C274.796 192.426 278.22 201.426 278.22 211.283C278.22 221.14 274.796 229.711 268.376 236.569C261.528 243.854 251.684 248.569 231.996 248.569Z" fill="hsl(0, 0%, 80%)"/>
-            </svg>                
-        </div>
-
-        <div class='nav_links'>
-            <a href="#section_home" class='active'>Home</a>
-            <a href="#section_about">Portfolio</a>
-            <a href="#section_projects">My CV</a>
-            <a href="#section_contact">Contact</a>
+        <div class="nav_porfolio">
+            <div id="theme_toggle">
+                <div class='theme_toggle_wrap'>
+                    <img class='light_mode' src='assets/svg/light_mode.svg' alt="Switch to dark mode"/>
+                    <img class='dark_mode' src='assets/svg/dark_mode.svg' alt="Switch to light mode"/>
+                </div>
+            </div>    
+            <p>Portfolio 2024</p>
         </div>
 
         <div class="nav_language">
@@ -55,59 +49,68 @@
             <p class="language_fr">FR</p>
         </div>
 
-        <p>Portfolio 2024</p>
+        <div class="nav_contactme">
+            <div class="background"></div>
+            <p>hello@lubinpappalardo.com</p>
+        </div>
 
-        <!-- <div class="nav_contactme">hello@lubinpappalardo.com</div> -->
+        <div id='hamburger_menu'>
+            <div class="container">
+                <div class="line upper"></div>
+                <div class="line middle"></div>
+                <div class="line lower"></div>
+            </div>
+        </div>
 
-        <img id="hamburger_menu" src='assets/svg/hamburger_menu.svg' alt="menu">
+    </navbar>
+
+    <navbar id="mobile_menu">
+
     </navbar>
 
 
     <section id="home_section">
 
-        <!-- <p id="portfolioDate">porfolio 2024</p> -->
-
-        <header>
-            <div class="header_intro">
-                <div id="theme_toggle">
-                    <div class='theme_toggle_wrap'>
-                        <img class='light_mode' src='assets/svg/light_mode.svg' alt="Switch to dark mode"/>
-                        <img class='dark_mode' src='assets/svg/dark_mode.svg' alt="Switch to light mode"/>
-                    </div>
-                </div>    
-                Welcome! I'm
-            </div>
-            <div class="header_main">
-                <h2>Lubin<span>he/him</span></h2>
-                <h2>Pappalardo</h2>
-                <div class="header_desc">I am a 16y.o. from France <img src='assets/img/fr_flag_emoji.png' alt='French flag'>. I love to work on creative projects and have many art related hobbies such as....</div>
-            </div>
-        </header>
- 
-        <div id="home_img">
-
-            <div id="home_img_fade"></div>
-
-            <div id="home_circle">
-                <svg viewBox="0 0 500 500">
-                    <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
-                    <text width="500">
-                      <textPath xlink:href="#curve">
-                        <!-- portfolio 2024 -->hello@lubinpappalardo.com
-                      </textPath>
-                    </text>
-                  </svg>
-            </div>
-
-            <img id="home_lubinpappalardo" src="assets/img/lubinpappalardo.png" alt="Lubin Pappalardo">
+        <div id="hobbies_cursor">
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg width="800px" height="800px" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12.5" cy="12.5" r="12.5" fill="#121923"/>
+                <path d="M9 8.5H16.5V16" stroke="#FFFFFF" stroke-width="1.2"/>
+                <path d="M16.5 8.5L7 18" stroke="#FFFFFF" stroke-width="1.2"/>
+            </svg>
         </div>
 
-        <!-- <div id="home_hobbies">
-            <h1>PHOTOGRAPHY</h1>
-            <h1>GRAPHIC DESIGN</h1>
-            <h1>TRAD. ART</h1>
-            <h1>WEB DESIGN</h1>
-        </div> -->
+        <div class="main_content">
+            <img id="home_section_image" src="assets/img/lubinpappalardo.png" alt="Lubin Pappalardo">
+            <p class="welcome">Welcome! I'm</p>
+            <h1 class='lubin'>LUBIN</h1>
+            <h1 class='pappalardo'>PAPPALARDO</h1>
+            <div class="bottom_row">
+                <p>and I like</p>
+                <h1 id="hobbies">
+                    <div class='hobbies_wrap'>
+                        <span>Photography</span>
+                        <span>Graphic Design</span>
+                        <span>Trad. Art</span>
+                        <span>Photography</span>
+                    </div>
+                </h1>
+                <div class="hobbies_list">
+                    <p>Photography</p>
+                    <p>Graphic Design</p>
+                    <p>Trad. Art</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="desc">
+            I'm French, 17 years old and currently living in the UAE. I love working on creative projects.
+        </p>
+        
+    </section>
+
+    <section id="photography_section">
+
     </section>
 
 

@@ -1,46 +1,44 @@
 :root {
     /* --- Colors --- */
 
-    --black: #16171D;
-    --darkslategray: #2D2F39;
-
-    --white: #ffffff;
-    --lightgray: hsl(0, 0%, 80%);
-
-    --lightsalmon: #FF9966;
-    --salmon: #DD5C4B;
-
-    --cadetblue: #22A3B4;
-    --steelblue: #02699A;
-
-    --textLightMode: hsl(0, 0%, 20%);
-    --textSecondaryLightMode: hsl(0, 0%, 50%);
+    --black: hsl(0, 0%, 7%);
+    --darkgrey: hsl(0, 0%, 20%);
+    --white: hsl(0, 0%, 90%);
+    --lightgrey: hsl(0, 0%, 80%);
 
     --textDarkMode: hsl(0, 0%, 80%);
-    --textSecondaryDarkMode: hsl(0, 0%, 50%);
+    --secondaryTextDarkMode: hsl(0, 0%, 50%);
+
+    --textLightMode: hsl(0, 0%, 20%);
+    --secondaryTextLightMode: hsl(0, 0%, 50%);
 
     /* --- Other Values --- */
 
     --navbarHeight: 80px;
-    --leftLineOffset: 60px;
 
-    --lineThickness: 0px;
+    --lineThickness: 1px;
 
-    --headerMainFontSize: 5rem;
-    --textSize: 18px;
+    --headerFontSize: calc(0.7rem + 8vw);
+    --textSizeSmall: 12px;
+    --textSize: 14px;
+    --textSizeBig: 16px;
     --padding: 40px;
 
-    @media only screen and (max-width: 1000px) {
-        --leftLineOffset: 0px;
-    }
+    --homeSectionAnimationDuration: 8s;
+
+    /* Divided in 12 columns with 40px padding left and right */
+    --columnSize: calc((100% - 2 * var(--padding)) / 12);
 }
 
 @media only screen and (max-width: 768px) {
     :root {
         --padding: 20px;
-        --headerMainFontSize: 3rem;
         --navbarHeight: 60px;
-        --leftLineOffset: 0px;
-        --textSize: 16px;
+        --textSizeSmall: 10px;
+        --textSize: 12px;
+        --textSizeBig: 14px;
+
+        /* Divided in 5 columns with 20px padding left and right */
+        --columnSize: calc((100% - 2 * var(--padding)) / 5);
     }
 }
