@@ -1,12 +1,12 @@
 :root {
     /* --- Colors --- */
 
-    --black: hsl(0, 0%, 7%);
+    --black: hsl(0, 0%, 5%);
     --darkgrey: hsl(0, 0%, 20%);
     --white: hsl(0, 0%, 90%);
     --lightgrey: hsl(0, 0%, 80%);
 
-    --textDarkMode: hsl(0, 0%, 80%);
+    --textDarkMode: hsl(0, 0%, 90%);
     --secondaryTextDarkMode: hsl(0, 0%, 50%);
 
     --textLightMode: hsl(0, 0%, 20%);

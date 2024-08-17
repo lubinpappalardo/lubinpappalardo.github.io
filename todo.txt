@@ -72,3 +72,14 @@ TODO:
 - Maybe improver responsive design
 
 Also I think I'll have to do the scroll animations via JS and not via CSS cause not being able to use overflow: hidden is causing too many problems
+
+-----------------
+17/08
+
+Experimented with GSAP for scroll animations, which is way better than the css only scroll and entry functions
+Spent some time (a lot) on Figma, slightly changed the layout of the design so it looks cleaner.
+Made the modifications, which were more time consuming than what I anticipated, made it responsive.
+The home section is basically done
+
+------------------
+18/08

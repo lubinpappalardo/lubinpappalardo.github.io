@@ -18,83 +18,15 @@
 
 #navbar .nav_porfolio {
     display: flex;
-    gap: 20px;
-    align-items: center;
+    width: 100%;
     font-size: var(--textSize);
+    text-transform: uppercase;
 
-    #theme_toggle {
-        /* border: 1px solid red; */
-        width: 20px;
-        height: 20px;
-        cursor: pointer;
-        overflow: hidden;
+    /* border: 1px solid red; */
 
-        .theme_toggle_wrap {
-            display: flex;
-            flex-direction: column;
-
-            img {
-                height: 100%;
-                transition: transform .5s;
-            }
-
-            .light_mode {
-                transition-delay: .5s;
-            }
-            .dark_mode {
-                transition-delay: 0s;
-            }
-        }
-
-        &.light_mode .theme_toggle_wrap {
-
-            .light_mode {
-                transform: translateY(100%);
-                transition-delay: 0s;
-            }
-            .dark_mode {
-                transform: translateY(-100%);
-                transition-delay: .5s;
-            }
-        }
+    @media only screen and (max-width: 767px) {
+        font-size: var(--textSizeBig);
     }
-}
-
-#navbar .nav_language {
-    margin-left: auto;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 40px;
-
-    @media only screen and (max-width: 1000px) {
-        display: none;
-    }
-
-    p {
-        cursor: pointer;
-    }
-
-    .language_indicator {
-        display: flex;
-        height: 2px;
-        width: 40px;
-        background: var(--lightBackground);
-        overflow: hidden;
-
-        .active {
-            height: 2px;
-            width: 20px;
-            background: var(--text);
-            transition: transform .5s cubic-bezier(.63,-0.43,.3,1);
-        }
-    }
-
-    &:has(.language_fr:hover) .active {
-        transform: translate(100%);
-    }
- 
 }
 
 #navbar .nav_contactme {
@@ -104,6 +36,8 @@
     display: flex;
     align-items: center;
     overflow: hidden;
+    min-width: min-content;
+    margin-left: auto;
 
     @media only screen and (max-width: 1000px) {
         display: none;
@@ -136,18 +70,14 @@
     }
 
 }
-
+ 
 
 #hamburger_menu {
-    --boxSize: 40px;
-    --boxPadding: calc(0.15 * var(--boxSize));
+    --boxSize: 30px;
+    --padding: calc(0.0 * var(--boxSize));
     width: var(--boxSize);
-    cursor: pointer;
     aspect-ratio: 1;
     overflow: hidden;
-    position: fixed;
-    right: var(--padding);
-    z-index: 9999;
     /* border: 1px solid red; */
 
     @media only screen and (min-width: 1001px) {
@@ -162,7 +92,7 @@
 
     .line {
         position: absolute;
-        width: calc(100% - 2 * var(--boxPadding));
+        width: calc(100% - 2 * var(--padding));
         height: calc(0.05 * var(--boxSize));
         background-color: var(--secondaryText);
     }
@@ -173,16 +103,9 @@
         transform-origin: center;
             transform: translate(
         -50%, 
-        calc(-50% - (var(--boxSize) * 0.22))
+        calc(-50% - (var(--boxSize) * 0.1))
         );
         transition: transform 1s, top 1s, left 1s, width 1s;
-    }
-
-    .middle {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        transition: width 0.5s;
     }
 
     .lower {
@@ -191,29 +114,19 @@
         transform-origin: center;
         transform: translate(
         -50%, 
-        calc(-50% + (var(--boxSize) * 0.22))
+        calc(-50% + (var(--boxSize) * 0.1))
         );
         transition: transform 1s, bottom 1s, left 1s, width 1s;
     }
 
-    &.opened {
-        .middle {
-            width: 0;
-        }
-        
-        .upper {
-            transform: translate(-50%, -50%) rotate(45deg);
-            width: calc(var(--boxSize) * 0.8);
-        }
+    &.opened .upper {
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: calc(var(--boxSize) * 0.8);
+    }
 
-        .lower {
-            transform: translate(-50%, -50%) rotate(-45deg);
-            width: calc(var(--boxSize) * 0.8);
-        }
-
-        .container {
-            transform: rotate(360deg);
-        }
+    &.opened .lower {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        width: calc(var(--boxSize) * 0.8);
     }
 }
 
@@ -228,7 +141,7 @@
     background-color: var(--background);
     transition: transform 0.5s;
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 1000px) {
         &.opened {
             transform: translateX(0%);
         }

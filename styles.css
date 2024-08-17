@@ -11,7 +11,7 @@
 html {
     width: 100%;
     height: 100%;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 body {
@@ -38,7 +38,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 @media (max-width: 767px) {
@@ -58,4 +58,34 @@ section {
     width: 100%;
     height: 100vh;
     /* overflow: hidden; */
+    /* overflow: visible; */
+}
+
+/* Scrollbar */
+
+/* width */
+body::-webkit-scrollbar {
+    width: 21px;
+    height: 10px;
+    /* border: none; */
+    /* border: 2px solid var(--background);
+    border: 2px solid var(--background); */
+}
+  
+body::-webkit-scrollbar-track {
+    background: var(--background); 
+    border: none;
+    z-index: -1;
+}
+   
+body::-webkit-scrollbar-thumb {
+    background: var(--text); 
+    border-radius: 20px;
+    /* border-right: 5px solid var(--background); */
+    border: 8px solid var(--background);
+}
+  
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--secondaryText); 
+    cursor: move;
 }

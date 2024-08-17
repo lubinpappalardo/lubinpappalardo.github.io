@@ -82,21 +82,17 @@ const cursorHobbiesLoop = () => {
 
 cursorHobbiesLoop();
 
-// hobbies.on('mouseenter', (event) => {
-//     if (isMobile || hobbiesHover) {
-//         return;
-//     }
-//     hobbiesCursor.css('left', cursor.x);
-//     hobbiesCursor.css('top', cursor.y);
-//     $('#home_section').append(hobbiesCursor);
+// --------------------------------------------------------
 
-//     hobbiesHover = true;
-//     cursorHobbiesLoop();
-// });
+function responsiveHobbiesList () {
+    if (window.innerWidth <= 768) {
+        let element = $('#home_section .hobbies_list').detach();
+        element.appendTo('#home_section .main_content');
+    } else {
+        let element = $('#home_section .hobbies_list').detach();
+        element.appendTo('#home_section .middle_row');
+    }
+};
 
-// hobbies.on('mouseleave', () => {
-//     console.log('leave');
-//     hobbiesHover = false;
-//     hobbiesCursor.remove();
-// });
-
+responsiveHobbiesList();
+$(window).on('resize', responsiveHobbiesList);
