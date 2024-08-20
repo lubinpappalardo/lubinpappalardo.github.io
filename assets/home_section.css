@@ -139,17 +139,6 @@
         height: 120%;
         z-index: 0;
         aspect-ratio: 1 / 1;
-    }
-
-    #home_section_image {
-        width: 100%;
-        height: 100%;
-        /* bottom: calc(var(--headerFontSize) * 0.8); */
-        /* left: calc(var(--headerFontSize) * 2.6); */
-        
-        
-        /* height: calc(var(--headerFontSize) * 3.2); */
-        
 
         @media only screen and (max-width: 767px) {
             height: 150%;
@@ -157,6 +146,17 @@
             bottom: 40%;
             z-index: -1;
         }
+    }
+
+    #home_section_image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        /* bottom: calc(var(--headerFontSize) * 0.8); */
+        /* left: calc(var(--headerFontSize) * 2.6); */
+        
+        
+        /* height: calc(var(--headerFontSize) * 3.2); */
 
         img {
             position: absolute;
