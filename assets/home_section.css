@@ -117,11 +117,6 @@
         @media only screen and (max-width: 767px) {
             font-size: var(--textSizeSmall);
         }
-
-        &.welcome {
-            animation: translateOutLeft linear;
-            animation-timeline: scroll(y);
-        }
     }
 
     h1 {
@@ -137,13 +132,24 @@
         }
     }
 
-    #home_section_image {
+    .home_section_image_wrap {
         position: absolute;
         bottom: 30%;
         left: 30%;
+        height: 120%;
         z-index: 0;
-        height: 110%;
         aspect-ratio: 1 / 1;
+    }
+
+    #home_section_image {
+        width: 100%;
+        height: 100%;
+        /* bottom: calc(var(--headerFontSize) * 0.8); */
+        /* left: calc(var(--headerFontSize) * 2.6); */
+        
+        
+        /* height: calc(var(--headerFontSize) * 3.2); */
+        
 
         @media only screen and (max-width: 767px) {
             height: 150%;
@@ -196,7 +202,7 @@
         .background {
             height: 100%;
             right: 0;
-            filter: saturate(0) contrast(0.9) brightness(0.6) opacity(0.6);
+            filter: saturate(0) contrast(0.9) brightness(0.4);
             -webkit-mask-image: linear-gradient(to bottom, 
                 rgba(0, 0, 0, 0) 0%,
                 rgba(0, 0, 0, 0) 10%, 
@@ -265,11 +271,15 @@
             }
 
             &:nth-child(2) {
-                animation-delay: calc(var(--homeSectionAnimationDuration) * 0.33);
+                animation-delay: calc(var(--homeSectionAnimationDuration) * 0.25);
             }
 
             &:nth-child(3) {
-                animation-delay: calc(var(--homeSectionAnimationDuration) * 0.66);
+                animation-delay: calc(var(--homeSectionAnimationDuration) * 0.5);
+            }
+
+            &:nth-child(4) {
+                animation-delay: calc(var(--homeSectionAnimationDuration) * 0.75);
             }
         }
     }
@@ -352,25 +362,29 @@
     0% {
         transform: translateY(0);
     }
-    28.33% { transform: translateY(0); }
-    33.33% {
-        transform: translateY(-25%);
+    20% { transform: translateY(0); }
+    25% {
+        transform: translateY(-20%);
     }
-    61.66% { transform: translateY(-25%); }
-    66.66% {
-        transform: translateY(-50%);
+    45% { transform: translateY(-20%); }
+    50% {
+        transform: translateY(-40%);
     }
-    95% { transform: translateY(-50%); }
+    70% { transform: translateY(-40%); }
+    75% {
+        transform: translateY(-60%);
+    }
+    95% { transform: translateY(-60%); }
     100% {
-        transform: translateY(-75%);
+        transform: translateY(-80%);
     }
 }
 
 @keyframes hobbiesList {
-    0%, 28.33% {
+    0%, 25% {
         color: var(--text);
     }
-    33.33%, 95% {
+    30%, 95% {
         color: var(--secondaryText);
     }
     100% {

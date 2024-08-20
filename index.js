@@ -85,7 +85,7 @@ cursorHobbiesLoop();
 // --------------------------------------------------------
 
 function responsiveHobbiesList () {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1000) {
         let element = $('#home_section .hobbies_list').detach();
         element.appendTo('#home_section .main_content');
     } else {

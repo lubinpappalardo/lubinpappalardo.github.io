@@ -52,7 +52,7 @@ Same.
 
 -----------------
 14/08
-lol
+Again.
 
 -----------------
 15/08
@@ -75,7 +75,6 @@ Also I think I'll have to do the scroll animations via JS and not via CSS cause 
 
 -----------------
 17/08
-
 Experimented with GSAP for scroll animations, which is way better than the css only scroll and entry functions
 Spent some time (a lot) on Figma, slightly changed the layout of the design so it looks cleaner.
 Made the modifications, which were more time consuming than what I anticipated, made it responsive.
@@ -83,3 +82,12 @@ The home section is basically done
 
 ------------------
 18/08
+
+------------------
+19/08
+
+------------------
+20/08
+
+Got some more ideas, made some changes on the <head/>. Also decided to separate graphic design and webdesign
+Starting photography section tomorrow

@@ -1,5 +1,7 @@
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+// --------------------------------------------------------
+
 gsap.to('.scroll_to_left', {
     xPercent: -100,
     opacity: -1,
@@ -61,7 +63,20 @@ gsap.to('#home_section .desc', {
     stagger: -0.1,
     scrollTrigger: {
         trigger: '#home_section + *',
-        start: 'top center',
+        start: 'top bottom',
+        end: 'top center',
+        scrub: true,
+        // markers: true
+    }
+});
+
+gsap.to('#home_section .home_section_image_wrap', {
+    yPercent: 159,
+    scale: 0.8,
+    ease: "none",
+    scrollTrigger: {
+        trigger: '#home_section + *',
+        start: 'top bottom',
         end: 'top top',
         scrub: true,
         // markers: true
