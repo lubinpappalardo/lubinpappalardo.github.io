@@ -9,7 +9,7 @@
     --textDarkMode: hsl(0, 0%, 90%);
     --secondaryTextDarkMode: hsl(0, 0%, 50%);
 
-    --textLightMode: hsl(0, 0%, 20%);
+    --textLightMode: hsl(0, 0%, 10%);
     --secondaryTextLightMode: hsl(0, 0%, 50%);
 
     /* --- Other Values --- */
@@ -18,7 +18,8 @@
 
     --lineThickness: 1px;
 
-    --headerFontSize: calc(0.7rem + 8vw);
+    --headerFontSize: calc(0.7rem + 7vw);
+    --sectionTitleFontSize: calc(0.7rem + 8vw);
     --textSizeSmall: 12px;
     --textSize: 14px;
     --textSizeBig: 16px;
@@ -27,7 +28,7 @@
     --homeSectionAnimationDuration: 8s;
 
     /* Divided in 12 columns with 40px padding left and right */
-    --columnSize: calc((100% - 2 * var(--padding)) / 12);
+    --columnSize: calc((100vw - 2 * var(--padding)) / 12);
 }
 
 @media only screen and (max-width: 768px) {

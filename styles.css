@@ -2,6 +2,7 @@
 @import 'assets/variables.css';
 @import 'assets/navbar.css';
 @import 'assets/home_section.css';
+@import 'assets/photography_section.css';
 
 * {
     box-sizing: border-box;
