@@ -5,53 +5,11 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 gsap.to('.scroll_to_left', {
     xPercent: -100,
     opacity: -1,
-    stagger: 0.05,
+    stagger: 0.03,
     scrollTrigger: {
         trigger: '#home_section + *',
         start: 'top bottom',
         end: 'bottom top',
-        scrub: true,
-        // markers: true
-    }
-});
-
-gsap.to('.hobbies_list p', {
-    yPercent: 300,
-    opacity: 0,
-    ease: "",
-    stagger: -0.1,
-    scrollTrigger: {
-        trigger: '#home_section + *',
-        start: 'top bottom',
-        end: 'top center',
-        scrub: true,
-        // markers: true
-    }
-});
-
-gsap.to('#theme_toggle', {
-    xPercent: -100,
-    opacity: 0,
-    ease: "",
-    stagger: -0.1,
-    scrollTrigger: {
-        trigger: '#home_section + *',
-        start: 'top center',
-        end: 'top top',
-        scrub: true,
-        // markers: true
-    }
-});
-
-gsap.to('#language_toggle', {
-    xPercent: 100,
-    opacity: 0,
-    ease: "",
-    stagger: -0.1,
-    scrollTrigger: {
-        trigger: '#home_section + *',
-        start: 'top center',
-        end: 'top top',
         scrub: true,
         // markers: true
     }
@@ -70,14 +28,16 @@ gsap.to('#home_section .desc', {
     }
 });
 
+
 gsap.to('#home_section .home_section_image_wrap', {
-    yPercent: 159,
+    yPercent: 345,
     scale: 0.8,
+    opacity: 0,
     ease: "none",
     scrollTrigger: {
         trigger: '#home_section + *',
         start: 'top bottom',
-        end: 'top top',
+        end: '60% top',
         scrub: true,
         // markers: true
     }
@@ -85,21 +45,28 @@ gsap.to('#home_section .home_section_image_wrap', {
 
 // --------------------------------------------------------
 
-const textEffect = document.querySelector('#navbar .nav_porfolio');
+// gsap.to('#photography_main', {
+//     yPercent: 100,
+//     ease: "none",
+//     scrollTrigger: {
+//         trigger: '#photography_section',
+//         start: 'center bottom',
+//         end: 'center top',
+//         scrub: true,
+//     }
+// });
 
-// Add event listeners for mouse enter and leave
-textEffect.addEventListener('mouseenter', () => {
-    gsap.to(textEffect, {
-        duration: 0.8,
-        ease: "",
-        text: "Lubin Pappalardo",
-    });
+gsap.to('#featured_photography div', {
+    yPercent: 150,
+    stagger: 0.1,
+    scrollTrigger: {
+        trigger: '#photography_section',
+        start: 'center bottom',
+        end: 'center top',
+        pin: true,
+        scrub: true,
+        // markers: true
+    }
 });
 
-textEffect.addEventListener('mouseleave', () => {
-    gsap.to(textEffect, {
-        duration: 0.8,
-        ease: "",
-        text: "Porfolio 2024",
-    });
-});
+// --------------------------------------------------------

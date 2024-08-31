@@ -9,16 +9,13 @@
     --textDarkMode: hsl(0, 0%, 90%);
     --secondaryTextDarkMode: hsl(0, 0%, 50%);
 
-    --textLightMode: hsl(0, 0%, 10%);
-    --secondaryTextLightMode: hsl(0, 0%, 50%);
-
     /* --- Other Values --- */
 
     --navbarHeight: 80px;
 
     --lineThickness: 1px;
 
-    --headerFontSize: calc(0.7rem + 7vw);
+    --headerFontSize: calc(1.1rem + 7vw);
     --sectionTitleFontSize: calc(0.7rem + 8vw);
     --textSizeSmall: 12px;
     --textSize: 14px;
@@ -31,15 +28,29 @@
     --columnSize: calc((100vw - 2 * var(--padding)) / 12);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 500px) { /* small screens */
+    :root {
+        /* Divided in 5 columns with 20px padding left and right */
+        --columnSize: calc((100% - 2 * var(--padding)) / 5);
+    }
+}
+
+@media only screen and (max-width: 768px) { /* small screens */
     :root {
         --padding: 20px;
         --navbarHeight: 60px;
         --textSizeSmall: 10px;
         --textSize: 12px;
         --textSizeBig: 14px;
+    }
+}
 
-        /* Divided in 5 columns with 20px padding left and right */
-        --columnSize: calc((100% - 2 * var(--padding)) / 5);
+@media only screen and (min-width: 2000px) { /* big screens */
+    :root {
+        --padding: 60px;
+        --navbarHeight: 100px;
+        --textSizeSmall: 14px;
+        --textSize: 16px;
+        --textSizeBig: 18px;
     }
 }

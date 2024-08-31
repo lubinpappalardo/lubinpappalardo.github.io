@@ -1,109 +1,23 @@
 #home_section {
     display: flex;
+    z-index: 1;
     justify-content: center;
     align-items: center;
 }
 
-#theme_toggle {
-    /* border: 1px solid red; */
-    position: absolute;
-    bottom: 20px;
-    left: var(--padding);
-    width: 22px;
-    height: 22px;
-    padding: 2px;
-    cursor: pointer;
-    overflow: hidden;
-
-    .theme_toggle_wrap {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transition: transform .3s;
-       
-        /* border: 1px solid red; */
-
-        img {
-            position: absolute;
-            height: 100%;
-            transition: transform .5s;
-        }
-
-        &:hover {
-            transform: scale(1.1);
-        }
-
-        .light_mode {
-            transform: translateY(0%);
-            transition-delay: .5s;
-        }
-        .dark_mode {
-            transform: translateY(calc(100% + 2px));
-            transition-delay: 0s;
-        }
-    }
-
-    &.light_mode .theme_toggle_wrap {
-
-        .light_mode {
-            transform: translateY(calc(100% + 2px));
-            transition-delay: 0s;
-        }
-        .dark_mode {
-            transform: translateY(0%);
-            transition-delay: .5s;
-        }
-    }
-}
-
-#language_toggle {
-    position: absolute;
-    bottom: 5px;
-    right: var(--padding);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--secondaryText);
-    font-size: var(--textSizeSmall);
-    /* border: 1px solid red; */
-
-    p {
-        cursor: pointer;
-        /* margin: 0; */
-    }
-
-    .language_indicator {
-        display: flex;
-        height: 2px;
-        width: 40px;
-        background: var(--lightBackground);
-        overflow: hidden;
-
-        .active {
-            height: 2px;
-            width: 20px;
-            background: var(--secondaryText);
-            transition: transform .5s cubic-bezier(.63,-0.43,.3,1);
-        }
-    }
-
-    &:has(.language_fr:hover) .active {
-        transform: translate(100%);
-    }
- 
-}
-
 #home_section .main_content {
-    margin-top: 10vh;
+    margin-top: var(--navbarHeight); /* centered on the screen with navbar height subtracted */
     position: relative;
     z-index: 0;
     display: flex;
     flex-direction: column;
     width: calc(9 * var(--columnSize));
 
-    /* border: 1px solid red; */
+    @media only screen and (min-width: 2000px) { /* wide screen */
+        width: calc(8 * var(--columnSize));
+    }
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 500px) { /* mobile */
         width: calc(5 * var(--columnSize));
     }
 
@@ -115,7 +29,7 @@
         white-space: nowrap;
 
         @media only screen and (max-width: 767px) {
-            font-size: var(--textSizeSmall);
+            font-size: var(--textSize);
         }
     }
 
@@ -125,24 +39,31 @@
         margin-left: calc(var(--headerFontSize) * -0.08); /* to get rid of that space between the 1st letter and the bounding box */
         font-size: var(--headerFontSize);
         line-height: calc(var(--headerFontSize) * 0.8); /* to get rid of that space above and under the letters and the bounding box */
-        /* border: 1px solid red; */
 
-        &#lubin {
-            z-index: -1; /*"Lubin" behind the image */
-        }
+        max-width: max-content;
+    }
+
+    #welcome {
+        margin-bottom: calc(var(--headerFontSize) * 0.05);
+    }
+
+    #lubin {
+        z-index: -1; /*"Lubin" behind the image */
+        cursor: pointer;
     }
 
     .home_section_image_wrap {
         position: absolute;
-        bottom: 30%;
-        left: 30%;
-        height: 120%;
+        bottom: 35%;
+        left: 31%;
+        height: 110%;
         z-index: 0;
         aspect-ratio: 1 / 1;
 
         @media only screen and (max-width: 767px) {
             height: 150%;
-            left: 10%;
+            left: auto;
+            right: 5%;
             bottom: 40%;
             z-index: -1;
         }
@@ -152,29 +73,22 @@
         position: relative;
         width: 100%;
         height: 100%;
-        /* bottom: calc(var(--headerFontSize) * 0.8); */
-        /* left: calc(var(--headerFontSize) * 2.6); */
-        
-        
-        /* height: calc(var(--headerFontSize) * 3.2); */
 
         img {
             position: absolute;
             height: 100%;
         }
 
+        /* On hover, the image gets from fully desatured to normal */
         @media only screen and (min-width: 768px) {
             &:hover {
-                /* border: 1px solid red; */
                 .foreground {
                     filter: saturate(0.8) contrast(1) !important;
                 }
-                /* .background {
-                    filter: saturate(0.8) contrast(1) brightness(1) opacity(0.8) !important;
-                } */
             }
         }
 
+        /* cutout of the foreground of image */
         .foreground {
             z-index: -1;
             right: 0;
@@ -184,6 +98,7 @@
             transition: filter .5s;
         }
 
+        /* container for the background acting as a mask */
         .background_wrap {
             position: absolute;
             top: 0;
@@ -192,7 +107,6 @@
             height: 100%;
             overflow: hidden;
             z-index: -2;
-            /* border: 1px solid red; */
 
             @media only screen and (max-width: 767px) {
                 width: 70%;
@@ -223,11 +137,8 @@
 
     .middle_row {
         display: flex;
-        align-items: flex-end;
-        /* border: 1px solid red; */
-        gap: calc(var(--padding) / 2);
+        justify-content: center;
         margin: calc(var(--headerFontSize) * 0.1) 0;
-        margin-left: auto; /* stick to the right */
         position: relative;
         z-index: 2;
 
@@ -242,153 +153,85 @@
         }
     }
 
-    .hobbies_list {
-        display: flex;
-        overflow: hidden;
-        flex-direction: column;
-        justify-content: bottom;
-        height: 100%;
-
-        /* @media only screen and (max-width: 1200px) {
-            top: calc(100% + var(--padding) / 4);
-        } */
-        
-        /* border: 1px solid red; */
-
-        p {
-            font-size: var(--textSize);
-            color: var(--secondaryText);
-            animation: hobbiesList var(--homeSectionAnimationDuration) infinite linear;
-            cursor: pointer;
-            text-align: right;
-
-            @media only screen and (max-width: 1200px) {
-                font-size: var(--textSizeSmall);
-            }
-
-            &:nth-child(1) {
-                animation-delay: 0s;
-            }
-
-            &:nth-child(2) {
-                animation-delay: calc(var(--homeSectionAnimationDuration) * 0.25);
-            }
-
-            &:nth-child(3) {
-                animation-delay: calc(var(--homeSectionAnimationDuration) * 0.5);
-            }
-
-            &:nth-child(4) {
-                animation-delay: calc(var(--homeSectionAnimationDuration) * 0.75);
-            }
-        }
-    }
-
     .bottom_row {
         display: flex;
         position: relative;
+        z-index: -1;
         margin-left: auto; /* stick to the right */
         gap: calc(var(--padding) / 2);
 
-        h1 {
+        #portfolio {
             font-family: "BoogyBrut", 'Times New Roman', Times, serif;
-        }
-
-        #hobbies {
+            font-size: calc(var(--headerFontSize) * 1.05); /* small adgustement because of the fond used that appears smaller */
             text-transform: uppercase;
-            height: calc(var(--headerFontSize) * 0.8);
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
+            transition: letter-spacing 0.5s;
 
-            .hobbies_wrap {
-                display: flex;
-                flex-direction: column;
-                animation: hobbies var(--homeSectionAnimationDuration) infinite cubic-bezier(.27,0,.18,1.13);
-            }
-            
-            span {
-                height: calc(var(--headerFontSize) * 0.8);
-                white-space: nowrap;
+            @media only screen and (min-width: 767px) {
+                &:hover {
+                    letter-spacing: 10px;
+                }
             }
         }        
     }
 }
 
+
+#lubin_pronunciation_help {
+    opacity: 0;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    background-color: var(--lightBackground);
+    border: 1px solid var(--secondaryText);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px 10px;
+    border-radius: 1px;
+
+    transform: translate(-20%, -50%);
+    
+    margin: 0;
+    font-size: calc(var(--headerFontSize) / 6);
+    line-height: normal;
+
+    pointer-events: none;
+    cursor: pointer;
+
+    img {
+        width: 20px;
+    }
+}
+
+#home_section:has(#lubin:hover) #lubin_pronunciation_help {
+    opacity: 1;
+}
+
+
+/* Presentation text at the bottom of the home section */
 #home_section .desc {
     position: absolute;
+    text-align: center;
     bottom: 0;
     width: calc(3 * var(--columnSize));
-    text-align: center;
     color: var(--secondaryText);
-    /* border: 1px solid red; */
+    line-height: 1.5;
 
-    @media only screen and (max-width: 767px) {
-        text-align: left;
-        left: var(--padding);
+    @media only screen and (max-width: 1000px) {
+        width: calc(5 * var(--columnSize));
+    }
+
+    @media only screen and (max-width: 500px) {
         bottom: 15%;
-    }
-}
-
-#hobbies_cursor {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    border-radius: 50%;
-    background: var(--text);
-    transform: translate(-75%, -25%);
-    z-index: 1000;
-    pointer-events: none;
-
-    circle { 
-        fill: var(--text);
+        width: calc(3 * var(--columnSize));
     }
 
-    path {
-        stroke: var(--background);
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    #home_section:has(#hobbies:hover) #hobbies_cursor {
-        display: flex;
-    }
-}
-
-@keyframes hobbies {
-    0% {
-        transform: translateY(0);
-    }
-    20% { transform: translateY(0); }
-    25% {
-        transform: translateY(-20%);
-    }
-    45% { transform: translateY(-20%); }
-    50% {
-        transform: translateY(-40%);
-    }
-    70% { transform: translateY(-40%); }
-    75% {
-        transform: translateY(-60%);
-    }
-    95% { transform: translateY(-60%); }
-    100% {
-        transform: translateY(-80%);
-    }
-}
-
-@keyframes hobbiesList {
-    0%, 25% {
-        color: var(--text);
-    }
-    30%, 95% {
-        color: var(--secondaryText);
-    }
-    100% {
-        color: var(--text);
+    @media only screen and (min-width: 2000px) {
+        width: calc(2 * var(--columnSize));
+        font-size: var(--textSizeBig);
     }
 }
 

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--title and meta-->
+    <title>Lubin Pappalardo</title>
+    <meta charset="UTF-8">
+    <meta name="Lubin Pappalardo">
+
+    <meta name="description" content="Lubin Pappalardo is a 17 years old from France with many creative hobbies like photography, traditional art, graphic design and web design and development. Currently based in the UAE."/>
+    <meta content="Lubin Pappalardo | 2024 Web Porfolio " property="og:title">
+    <meta content="Lubin Pappalardo is a 17 years old from France with many creative hobbies like photography, traditional art, graphic design and web design and development. Currently based in the UAE." property="og:description">
+
+    <meta name="author" content="Lubin Pappalardo" />
+    <meta name="keywords" content="lubin, pappalardo, photography, art, design, website">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark only">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="assets/svg/favicon_light_mode.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/svg/favicon_dark_mode.svg" media="(prefers-color-scheme: dark)" />
+
+    <!--apple-->
+    <link rel="apple-touch-icon" href="assets/svg/favicon_light_mode.svg">
+    <link rel="apple-touch-startup-image" href="assets/svg/favicon_light_mode.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!--style-->
+    <link rel="stylesheet" href="styles.css">
+
+    <!--script-->
+    <script src="assets/gsap/gsap.min.js"></script>
+    <script src="assets/gsap/ScrollTrigger.min.js"></script>
+    <script src="assets/gsap/TextPlugin.min.js"></script>
+    <script src="assets/gsap/ScrollToPlugin.min.js"></script>
+    <script src="assets/gsap/Flip.min.js"></script>
+    <script src="assets/jquery.js"></script>
+    <script src="index.js" defer></script>
+    <script src="gsapAnimations.js" defer></script>
+</head>
+<body>
+
+    <!-- Navigation bar, website name, languages, contact -->
+    <navbar id="navbar">
+        <div class="nav_website_name"> 
+            <img src="assets/svg/favicon_dark_mode.svg" alt="Logo 'LP'">
+            <p>Lubin Pappalardo</p>
+        </div>
+
+        <div class="nav_links">
+            <span class="active">Home</span>
+            <span>My Work</span>
+            <span>About</span>
+            <span>Contact</span>
+        </div>
+
+        <div id="language_toggle"> <!-- Language togggle -->
+            <p>EN</p>
+            <div class='language_indicator'> <!-- Bar -->
+                <div class="active"></div> <!-- Indicator of selected language -->
+            </div>
+            <p class="language_fr">FR</p>
+        </div>
+
+        <!-- Contact (email) -->
+        <div class="nav_contactme">
+            <div class="background"></div>
+            <p>hello@lubinpappalardo.com</p>
+        </div>
+
+        <!-- Hamburger menu with custom morph to cross animation (on codepen) -->
+        <div id='hamburger_menu'>
+            <div class="container">
+                <div class="line upper"></div>
+                <!-- <div class="line middle"></div> -->
+                <div class="line lower"></div>
+            </div>
+        </div>
+
+    </navbar>
+
+    <!-- Panel menu when on smaller devices -->
+    <navbar id="mobile_menu">
+    </navbar>
+
+    <!-- Home section -->
+    <section id="home_section">
+
+        <div id="lubin_pronunciation_help">
+            <img src="assets/svg/speaker.svg" alt="Listen to the pronounciation">
+            /ly.bã/
+        </div>
+
+        <div class="main_content">
+
+            <div class="home_section_image_wrap">
+            <div id="home_section_image">
+                <div class="background_wrap"><img class="background" src="assets/img/lubinpappalardo_background.png" alt="Lubin Pappalardo"></div>
+                <img class="foreground" src="assets/img/lubinpappalardo_foreground.png" alt="Lubin Pappalardo">
+            </div>
+            </div>
+
+            <p class="scroll_to_left welcome" id="welcome">Welcome! I'm</p>
+            <h1 class="scroll_to_left" id='lubin'>LUBIN</h1>
+
+            <div class="middle_row scroll_to_left">
+                <h1 id='pappalardo'>PAPPALARDO</h1>
+            </div>
+
+            <div class="scroll_to_left bottom_row">
+                <p>and this is my</p>
+                <h1 id="portfolio">PORTFOLIO</h1>
+            </div>
+
+        </div>
+
+        <p class="desc">
+            I'm French, 17 years old and currently living in the UAE. I love working on creative projects.
+        </p>
+        
+    </section>
+
+<!-- 
+    <section id="photography_section">
+
+        <main id="photography_main">
+            <div id="featured_photography">
+                <div><img src="assets/img/photography/image1.png" alt="Featured picture #1 - Cormorant"><p>Cormorant</p></div>
+                <div><img src="assets/img/photography/image2.png" alt="Featured picture #2 - Barred Owl"><p>Barred Owl</p></div>
+                <div><img src="assets/img/photography/image3.png" alt="Featured picture #3 - Canadian Jay"><p>Canadian Jay</p></div>
+                <div><img src="assets/img/photography/image4.png" alt="Featured picture #4 - Crested Anole"><p>Crested Anole</p></div>
+                <div><img src="assets/img/photography/image5.png" alt="Featured picture #5 - Osprey"><p>Osprey</p></div>
+                <div><img src="assets/img/photography/image6.png" alt="Featured picture #6 - Burrowing Owl"><p>Burrowing Owl</p></div>
+            </div>
+
+            <div class="section_info">
+                <div class="left_group">
+                    <div class="section_subtitle">
+                        <p>Videography and</p>
+                        <div class="section_tags">
+                            <p>#Lightroom</p>
+                        </div>
+                    </div>
+                    <h1 class="section_title">PHOTOGRAPHY</h1>
+                </div>
+                <div class="right_group">
+                    <button class="section_call_to_action">Visit my gallery</button>
+                    <p class="section_desc">I enjoy taking pictures of wildlife and landscape when I travel which I post on Instagram but also like to record from time to time.  I started photography in 2021 and got my first own professional camera in late 2022, Canon EOS R7 with the Canon RF 100-500mm which I still use.</p>
+                </div>
+            </div>
+        </main>
+
+    </section> -->
+
+
+</body>
+</html>

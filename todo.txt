@@ -91,3 +91,13 @@ The home section is basically done
 
 Got some more ideas, made some changes on the <head/>. Also decided to separate graphic design and webdesign
 Starting photography section tomorrow
+
+------------------
+30/08
+
+TODO
+[] - "scroll down" indication
+[] - Pronounciation when hover "Lubin"
+[] - Some kind of hover effect
+[] - Socials icon from behind the contact button?
+[] - Start animation

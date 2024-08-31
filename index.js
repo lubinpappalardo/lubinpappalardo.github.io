@@ -34,14 +34,6 @@ function isMobileFn() {
 $(window).on('resize', isMobileFn);
 isMobileFn();
 
-// --------------------------------------------------------
-
-const themeToggle = $('#theme_toggle');
-
-themeToggle.on('click', () => {
-    $('body').toggleClass('light_mode');
-    themeToggle.toggleClass('light_mode');
-});
 
 // --------------------------------------------------------
 
@@ -55,44 +47,38 @@ hamburgerMenu.on('click', () => {
 
 // --------------------------------------------------------
 
-const hobbies = $('#hobbies');
-let hobbiesHover = false;
-let hobbiesCursor = $('#hobbies_cursor');
+$(window).on('scroll', () => {
+    if (window.scrollY > 0) {
+        $('#navbar').addClass('scrolled');
+    } else {
+        $('#navbar').removeClass('scrolled');
+    }
+});
 
-const cursorHobbiesLoop = () => {    
-    // if (!hobbiesHover) {
-    //     return;
-    // }
+// --------------------------------------------------------
+
+let lubinPronunciationHelp = $('#lubin_pronunciation_help');
+
+const lubinPronunciationHelpLoop = () => {    
 
     const smoothness = 0.2; // Adjust this value for desired smoothness
     const targetX = cursor.x;
     const targetY = cursor.y;
 
-    const dx = (targetX - parseFloat(hobbiesCursor.css('left'))) * smoothness;
-    const dy = (targetY - parseFloat(hobbiesCursor.css('top'))) * smoothness;
+    const dx = (targetX - parseFloat(lubinPronunciationHelp.css('left'))) * smoothness;
+    const dy = (targetY - parseFloat(lubinPronunciationHelp.css('top'))) * smoothness;
 
-    const newX = parseFloat(hobbiesCursor.css('left')) + dx;
-    const newY = parseFloat(hobbiesCursor.css('top')) + dy;
+    const newX = parseFloat(lubinPronunciationHelp.css('left')) + dx;
+    const newY = parseFloat(lubinPronunciationHelp.css('top')) + dy;
 
-    hobbiesCursor.css('left', newX);
-    hobbiesCursor.css('top', newY);
+    lubinPronunciationHelp.css('left', newX);
+    lubinPronunciationHelp.css('top', newY);
 
-    requestAnimationFrame(cursorHobbiesLoop);
+    requestAnimationFrame(lubinPronunciationHelpLoop);
 };
 
-cursorHobbiesLoop();
+$('#lubin').on('click', () => {
+    window.open('https://www.pronouncenames.com/pronounce/LUBIN', '_blank');
+});
 
-// --------------------------------------------------------
-
-function responsiveHobbiesList () {
-    if (window.innerWidth <= 1000) {
-        let element = $('#home_section .hobbies_list').detach();
-        element.appendTo('#home_section .main_content');
-    } else {
-        let element = $('#home_section .hobbies_list').detach();
-        element.appendTo('#home_section .middle_row');
-    }
-};
-
-responsiveHobbiesList();
-$(window).on('resize', responsiveHobbiesList);
+lubinPronunciationHelpLoop();
