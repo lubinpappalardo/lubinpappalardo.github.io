@@ -1,0 +1,170 @@
+#hobby_section {
+    --numOfSections: 3;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    height: calc(200vh * var(--numOfSections));
+}
+
+#hobby_section_main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--navbarHeight);
+    /* border: 1px solid red; */
+    overflow: hidden;
+}
+
+#featured_work {
+    display: flex;
+    height: max-content;
+    gap: calc(var(--padding) / 2);
+    padding: 0 var(--padding);
+    transform: translateY(-150%);
+
+    /* border: 1px solid red; */
+
+    div {
+        width: 100%;
+
+        img {
+            width: 100%;
+            aspect-ratio: 5/7;
+            object-fit: cover;
+        }
+
+        p {
+            color: var(--secondaryText);
+        }
+    }
+
+}
+
+#hobby_section .section_info {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-top: auto;
+    justify-content: space-between;
+    padding: calc(var(--padding) / 2) var(--padding);
+
+    @media only screen and (max-width: 767px) {
+        margin-top: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* border: 1px solid red; */
+
+    .left_group {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--padding) / 4);
+
+        /* border: 1px solid red; */
+
+        .section_subtitle {
+            position: relative;
+            line-height: calc(var(--sectionTitleFontSize) / 6 * 1);
+            height: calc(var(--sectionTitleFontSize) / 6 * 1.1);
+            width: max-content;
+            font-size: calc(var(--headerFontSize) / 6);
+            text-transform: uppercase;
+            margin: 0;
+            overflow: hidden;
+            /* border: 1px solid red; */
+
+            .section_subtitle_container {
+                display: flex;
+                flex-direction: column;
+                /* border: 1px solid red; */
+
+                
+                div {
+                    /* border: 1px solid red; */
+                    padding-right: calc(var(--sectionTitleFontSize) * 0.1);
+                }
+            }
+        }
+
+        .section_title {
+            position: relative;
+            font-size: var(--sectionTitleFontSize);
+            line-height: calc(var(--sectionTitleFontSize) * 0.8);
+            width: max-content;
+            height: calc(var(--sectionTitleFontSize) * 0.8);
+            font-style: normal;
+            text-transform: uppercase;
+            margin: 0;
+            overflow: hidden;
+            /* border: 1px solid red; */
+
+            .section_title_container {
+                display: flex;
+                flex-direction: column;
+                /* border: 1px solid red; */
+
+                
+                div {
+                    /* border: 1px solid red; */
+                    padding-right: calc(var(--sectionTitleFontSize) * 0.1);
+                }
+            }
+        }
+    }
+
+    .right_group {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: calc(4 * var(--columnSize));
+
+        /* border: 1px solid red; */
+
+        .section_call_to_action {
+            width: calc(3 * var(--columnSize));
+            padding: 15px 0;
+            border: 1px solid var(--secondaryText);
+            outline: none;
+            background: none;
+            text-transform: uppercase;
+            font-size: var(--textSizeBig);
+
+            margin-bottom: calc(var(--padding) / 2);
+        }
+
+        .section_desc_container {
+            position: relative;
+            /* border: 1px solid red; */
+
+            .section_tags {
+                font-size: var(--textSizeSmall);
+                float: right;
+                display: flex;
+                gap: 5px;
+            }
+
+            .section_desc {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                color: var(--secondaryText);
+                margin: 0;
+
+                @media only screen and (min-width: 2000px) {
+                    font-size: var(--textSizeBig);
+                }
+    
+                &:not(#desc_photography) {
+                    opacity: 0;
+                    position: absolute;   
+                    bottom: 0;    
+    
+                }
+            }
+        }
+    }
+}

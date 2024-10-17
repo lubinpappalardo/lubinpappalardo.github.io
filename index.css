@@ -1,0 +1,81 @@
+@import 'assets/styles/fonts.css';
+@import 'assets/styles/variables.css';
+@import 'assets/styles/navbar.css';
+@import 'assets/styles/home_section.css';
+@import 'assets/styles/hobby_section.css';
+@import 'assets/styles/footer_section.css';
+
+* {
+    box-sizing: border-box;
+    font-family: "BDOGroteskLight", Arial, Helvetica, sans-serif;
+}
+  
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    --background: var(--black);
+    --lightBackground: var(--darkgrey);
+    --text: var(--textDarkMode);
+    --secondaryText: var(--secondaryTextDarkMode);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+    font-size: var(--textSize);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+    body {
+        max-width: 100%;
+    }
+}
+
+h1, h2, h3, h4, h1 *, h2 *, h3 *, h4 * {
+    font-family: "BoogyBrut", 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Scrollbar */
+
+/* width */
+body::-webkit-scrollbar {
+    width: 21px;
+    height: 10px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: var(--background); 
+    border: none;
+    z-index: -1;
+}
+   
+body::-webkit-scrollbar-thumb {
+    background: var(--text); 
+    border-radius: 20px;
+    border: 8px solid var(--background);
+}
+  
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--secondaryText); 
+    cursor: move;
+}

@@ -1,0 +1,238 @@
+#home_section {
+    display: flex;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#home_section .main_content {
+    margin-top: var(--navbarHeight); /* centered on the screen with navbar height subtracted */
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    width: calc(9 * var(--columnSize));
+
+    @media only screen and (min-width: 2000px) { /* wide screen */
+        width: calc(8 * var(--columnSize));
+    }
+
+    @media only screen and (max-width: 500px) { /* mobile */
+        width: calc(5 * var(--columnSize));
+    }
+
+    p {
+        text-transform: uppercase;
+        font-size: calc(var(--headerFontSize) / 6);
+
+        margin: 0;
+        white-space: nowrap;
+
+        @media only screen and (max-width: 767px) {
+            font-size: var(--textSize);
+        }
+    }
+
+    h1 {
+        font-family: "BDOGroteskLight", Arial, Helvetica, sans-serif;
+        margin: 0;
+        margin-left: calc(var(--headerFontSize) * -0.08); /* to get rid of that space between the 1st letter and the bounding box */
+        font-size: var(--headerFontSize);
+        line-height: calc(var(--headerFontSize) * 0.8); /* to get rid of that space above and under the letters and the bounding box */
+
+        max-width: max-content;
+    }
+
+    #welcome {
+        margin-bottom: calc(var(--headerFontSize) * 0.05);
+    }
+
+    #lubin {
+        z-index: -1; /*"Lubin" behind the image */
+        cursor: pointer;
+    }
+
+    .home_section_image_wrap {
+        position: absolute;
+        bottom: 35%;
+        left: 31%;
+        height: 110%;
+        z-index: 0;
+        aspect-ratio: 1 / 1;
+
+        @media only screen and (max-width: 767px) {
+            height: 150%;
+            left: auto;
+            right: 5%;
+            bottom: 40%;
+            z-index: -1;
+        }
+    }
+
+    #home_section_image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        img {
+            position: absolute;
+            height: 100%;
+        }
+
+        /* On hover, the image gets from fully desatured to normal */
+        @media only screen and (min-width: 768px) {
+            &:hover {
+                .foreground {
+                    filter: saturate(0.8) contrast(1) !important;
+                }
+                .background {
+                    filter: saturate(0.8) contrast(1) !important;
+                }
+            }
+        }
+
+        /* cutout of the foreground of image */
+        .foreground {
+            z-index: -1;
+            right: 0;
+            /* filter: saturate(0) contrast(1.1); */
+            filter: saturate(0.8) contrast(1) !important;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+            mask-image: radial-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+            transition: filter .5s;
+        }
+
+        /* container for the background acting as a mask */
+        .background_wrap {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+
+            @media only screen and (max-width: 767px) {
+                width: 70%;
+            }
+        }
+
+        .background {
+            height: 100%;
+            right: 0;
+            /* filter: saturate(0) contrast(0.9) brightness(0.4); */
+            filter: saturate(0.8) contrast(1) !important;
+            -webkit-mask-image: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0) 10%, 
+                rgba(0, 0, 0, 1) 10%, 
+                rgba(0, 0, 0, 1) 60%, 
+                rgba(0, 0, 0, 0) 90%
+            );
+            mask-image: radial-gradient(to bottom, 
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0) 10%, 
+                rgba(0, 0, 0, 1) 10%, 
+                rgba(0, 0, 0, 1) 60%, 
+                rgba(0, 0, 0, 0) 90%
+            );
+            transition: filter .5s;
+        }
+    }
+
+    .middle_row {
+        display: flex;
+        justify-content: center;
+        margin: calc(var(--headerFontSize) * 0.1) 0;
+        position: relative;
+        z-index: 2;
+
+        @media only screen and (max-width: 767px) {
+            margin-left: none;
+            width: 100%;
+            justify-content: center;
+        }
+
+        #pappalardo {
+            z-index: 2;
+        }
+    }
+
+    .bottom_row {
+        display: flex;
+        position: relative;
+        z-index: -2;
+        margin-left: auto; /* stick to the right */
+        gap: calc(var(--padding) / 2);
+
+        #portfolio {
+            font-family: "BoogyBrut", 'Times New Roman', Times, serif;
+            font-size: calc(var(--headerFontSize) * 1.05); /* small adgustement because of the fond used that appears smaller */
+            text-transform: uppercase;
+            transition: letter-spacing 0.5s;
+
+            @media only screen and (min-width: 767px) {
+                &:hover {
+                    letter-spacing: 10px;
+                }
+            }
+        }        
+    }
+}
+
+
+#lubin_pronunciation_help {
+    opacity: 0;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+
+    background-color: var(--lightBackground);
+    border: 1px solid var(--secondaryText);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px 10px;
+    border-radius: 1px;
+
+    transform: translate(-20%, -50%);
+    
+    margin: 0;
+    font-size: var(--textSize);
+    line-height: normal;
+
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#home_section:has(#lubin:hover) #lubin_pronunciation_help {
+    opacity: 1;
+}
+
+
+/* Presentation text at the bottom of the home section */
+#home_section .desc {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: calc(3 * var(--columnSize));
+    color: var(--secondaryText);
+    line-height: 1.5;
+
+    @media only screen and (max-width: 1000px) {
+        width: calc(5 * var(--columnSize));
+    }
+
+    @media only screen and (max-width: 500px) {
+        bottom: 15%;
+        width: calc(3 * var(--columnSize));
+    }
+
+    @media only screen and (min-width: 2000px) {
+        width: calc(2 * var(--columnSize));
+        font-size: var(--textSizeBig);
+    }
+}
+

@@ -1,0 +1,23 @@
+#footer_section {
+    height: auto;
+    /* background-color: var(--lightBackground); */
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+
+    /* border: 1px solid red; */
+
+
+    .content {
+        padding: 10px;
+    }
+
+
+    #footer_credit {
+        /* border: 1px solid lime; */
+        margin: 0;
+        margin-bottom: -1vw;
+        width: 100%;
+        font-size: 6.82vw;
+        text-align: center;
+    }
+}

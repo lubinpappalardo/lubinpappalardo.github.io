@@ -1,0 +1,56 @@
+:root {
+    /* --- Colors --- */
+
+    --black: hsl(0, 0%, 5%);
+    --darkgrey: hsl(0, 0%, 20%);
+    --white: hsl(0, 0%, 90%);
+    --lightgrey: hsl(0, 0%, 80%);
+
+    --textDarkMode: hsl(0, 0%, 90%);
+    --secondaryTextDarkMode: hsl(0, 0%, 50%);
+
+    /* --- Other Values --- */
+
+    --navbarHeight: 80px;
+
+    --lineThickness: 1px;
+
+    --headerFontSize: calc(1.1rem + 7vw);
+    --sectionTitleFontSize: calc(0.7rem + 8vw);
+    --textSizeSmall: 12px;
+    --textSize: 14px;
+    --textSizeBig: 16px;
+    --padding: 40px;
+
+    --homeSectionAnimationDuration: 8s;
+
+    /* Divided in 12 columns with 40px padding left and right */
+    --columnSize: calc((100vw - 2 * var(--padding)) / 12);
+}
+
+@media only screen and (max-width: 500px) { /* small screens */
+    :root {
+        /* Divided in 5 columns with 20px padding left and right */
+        --columnSize: calc((100% - 2 * var(--padding)) / 5);
+    }
+}
+
+@media only screen and (max-width: 768px) { /* small screens */
+    :root {
+        --padding: 20px;
+        --navbarHeight: 60px;
+        --textSizeSmall: 10px;
+        --textSize: 12px;
+        --textSizeBig: 14px;
+    }
+}
+
+@media only screen and (min-width: 2000px) { /* big screens */
+    :root {
+        --padding: 60px;
+        --navbarHeight: 100px;
+        --textSizeSmall: 14px;
+        --textSize: 16px;
+        --textSizeBig: 18px;
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--title and meta-->
+    <title>Lubin Pappalardo</title>
+    <meta charset="UTF-8">
+    <meta name="Lubin Pappalardo | Trad. Art Portfolio">
+
+    <meta name="description" content="Traditional art portfolio. graphite, charcoal, clay and others. Lubin Pappalardo is a 17 years old from France with many creative hobbies currently based in the UAE."/>
+    <meta content="Lubin Pappalardo | Trad. Art Portfolio" " property="og:title">
+    <meta content="Traditional art portfolio. graphite, charcoal, clay and others. Lubin Pappalardo is a 17 years old from France with many creative hobbies currently based in the UAE." property="og:description">
+
+    <meta name="author" content="Lubin Pappalardo" />
+    <meta name="keywords" content="lubin, pappalardo, art, portfolio, website, graphite, artwork, charcoal, drawing">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark only">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="assets/svg/favicon_light_mode.svg" media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="assets/svg/favicon_dark_mode.svg" media="(prefers-color-scheme: dark)" />
+
+    <!--apple-->
+    <link rel="apple-touch-icon" href="assets/svg/favicon_light_mode.svg">
+    <link rel="apple-touch-startup-image" href="assets/svg/favicon_light_mode.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!--style-->
+    <link rel="stylesheet" href="artwork.css">
+
+    <!--script-->
+    <script src="assets/jquery.js"></script>
+    <script src="assets/artwork/database.js"></script>
+    <script src="assets/artwork/artwork.js" defer></script>
+</head>
+<body>
+
+<navbar id="navbar">
+    <button id="back_to_home_btn" onclick="location.href='index.html'">
+        <img src='assets/svg/arrow_left.svg' alt="arrow">
+        <img src="assets/svg/favicon_dark_mode.svg" alt="logo">
+    </button>
+
+    <div id="search_group">
+        <select id="category_filter" title="category_filter">
+            <option value="all">All categories</option>
+        </select>
+
+        <select id="medium_filter" title="medium_filter">
+            <option value="all">All mediums</option>
+            <option value="graphite">Graphite</option>
+            <option value="charcoal">Charcoal</option>
+            <option value="watersoluble graphite">Watersoluble graphite</option>
+            <option value="ink">Ink</option>
+            <option value="colored pencil">Colored pencil</option>
+        </select>
+        <input type="text" id="search_bar" title="search_bar" placeholder="Search the porfolio">
+    </div>
+</navbar>
+
+<div id="artwork">
+
+</div>
+
+</body>
+</html>
