@@ -103,6 +103,8 @@ gsap.to('#hobby_section', {
 
 // --------------------------------------------------------
 
+const callToActionBtn = document.querySelector('#hobby_section .section_call_to_action');
+
   gsap.to('#hobby_section .section_title_container', {
     yPercent: -100,
     ease: "none",
@@ -121,13 +123,16 @@ gsap.to('#hobby_section', {
           // First third: 0% to -33%
           yPercent = gsap.utils.interpolate(0, -33.33, (progress * 3));
 
+
         } else if (progress >= (1/3) && progress < (2/3)) {
           // Second third
           yPercent = -33.33;
 
+
         } else if (progress >= (2/3)) {
           // Third third
           yPercent = gsap.utils.interpolate(-33.33, -66.66, (progress - (2/3)) * 3);
+
         }
         
         gsap.set('#hobby_section .section_title_container', { yPercent });
@@ -181,6 +186,17 @@ gsap.to('#desc_design', {
 });
 
 gsap.to('#desc_art', {
+  opacity: 1,
+  scrollTrigger: {
+      trigger: '#hobby_section',
+      start: `${sectionHeight * 2}% bottom`,
+      end: `${sectionHeight * 2}% top`,
+      scrub: true,
+      // markers: true
+  }
+});
+
+gsap.to('#featured_artwork', {
   opacity: 1,
   scrollTrigger: {
       trigger: '#hobby_section',

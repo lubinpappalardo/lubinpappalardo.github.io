@@ -56,7 +56,7 @@
         </div>
 
         <div id="language_toggle"> <!-- Language togggle -->
-            <p>EN</p>
+            <p class='active'>EN</p>
             <div class='language_indicator'> <!-- Bar -->
                 <div class="active"></div> <!-- Indicator of selected language -->
             </div>
@@ -133,13 +133,17 @@
                 <div><img src="assets/img/photography/image6.png" alt="Featured picture #6 - Burrowing Owl"><p>Burrowing Owl</p></div>
             </div>
 
+            <div id="featured_artwork">
+                <img src='assets/img/bufallo.JPG' alt="Charcoal artwork">
+            </div>
+
             <div class="section_info">
                 <div class="left_group">
                     <div class="section_subtitle">
                         <div class="section_subtitle_container">
                             <div>Videography and</div>
                             <div>Graphic design, website </div>
-                            <div>Graphite, Charcoal</div>
+                            <div>Graphite, Charcoal, ...</div>
                         </div>
                     </div>
                     <h1 class="section_title">
@@ -152,10 +156,11 @@
                     </h1>
                 </div>
                 <div class="right_group">
-                    <button class="section_call_to_action">Visit my gallery</button>
+        
                     <div class="section_desc_container">
                         <!-- --- Photography --- -->
                         <p class="section_desc" id="desc_photography">
+                            <button class="section_call_to_action" onclick="window.open('https://www.instagram.com/lubin.photography', '_blank')">Visit my gallery (Insta)</button>
                             <span class="section_tags">
                                 <span>#DaVinci</span>
                                 <span>#Lightroom</span>
@@ -170,6 +175,7 @@
                         -->
 
                         <p class="section_desc" id="desc_design">
+                            <button class="section_call_to_action">Check out my work</button>
                             <span class="section_tags">
                                 <span>#Figma</span>
                                 <span>#HTML/CSS/JS</span>
@@ -178,6 +184,7 @@
                         </p>
                         <!-- --- Art --- -->
                         <p class="section_desc" id="desc_art">
+                            <button class="section_call_to_action" onclick="document.location = '/artwork.html';">Visit my portfolio</button>
                             <span class="section_tags">
                                 <span>#Graphite</span>
                                 <span>#Charcoal</span>

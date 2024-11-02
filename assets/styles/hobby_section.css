@@ -42,6 +42,25 @@
 
 }
 
+#featured_artwork {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* display: flex;
+    align-items: center; */
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 55%;
+        opacity: 0.6
+    }
+}
+
 #hobby_section .section_info {
     width: 100%;
     display: flex;
