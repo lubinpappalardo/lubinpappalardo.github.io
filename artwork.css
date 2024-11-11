@@ -201,6 +201,31 @@ body::-webkit-scrollbar-thumb:hover {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 
+    @media only screen and (max-width: 767px) {
+        & {
+            flex-direction: column;
+
+            #full_view_image_container {
+                /* height: calc(70vh - 1.5 * var(--navbarHeight)) !important; */
+                height: auto !important;
+                max-height: 60vh !important;
+                width: 90vw;
+            }
+
+            #full_view_image {
+                max-width: 100% !important;
+                max-height: 100% !important;
+                width: 100% !important;
+                height: 100% !important;
+                object-position: center center !important;
+            }
+
+            #full_view_image_info {
+                max-width: 100% !important;
+            }
+        }
+    }
+
     #full_view_image_container {
         /* border: 1px solid red; */
         height: calc(100vh - 1.5 * var(--navbarHeight));
@@ -208,6 +233,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     #full_view_image {
+        /* border: 1px solid lime; */
         max-height: 100%;
         object-fit: contain;
 

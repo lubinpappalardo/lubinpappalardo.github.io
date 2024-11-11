@@ -12,7 +12,9 @@ function calculateColumnCount() {
 }
 
 function loadImages(db) {
-            
+
+    container.empty();
+
     const columnCount = calculateColumnCount();
 
     let currentIndex = 0;
@@ -38,6 +40,11 @@ function loadImages(db) {
     // }
 
     function loadMoreImages() {
+        if (currentIndex >= db.length) {
+            $(window).off('scroll', checkScroll);
+            return;
+        }
+
         let column_index = 0;
         let endIndex = Math.min(currentIndex + batchSize, db.length);
         for (let i = currentIndex; i < endIndex; i++) {
@@ -153,6 +160,7 @@ $(document).ready(function() {
         loadImages(sorted_db);
 
         let categories = []
+        let medium_categories = []
 
         for (let i = 0; i < sorted_db.length; i++) {
             let item = sorted_db[i];
@@ -162,6 +170,15 @@ $(document).ready(function() {
                 if (!categories.includes(tag)) {
                     categories.push(tag);
                     $('#category_filter').append(`<option value="${tag}">${tag} (${database.filter(item => item.tags.includes(tag)).length})</option>`);
+                }
+            }
+
+            let mediums = item.medium;
+            for (let j = 0; j < mediums.length; j++) {
+                let medium = mediums[j];
+                if (!medium_categories.includes(medium)) {
+                    medium_categories.push(medium);
+                    $('#medium_filter').append(`<option value="${medium}">${medium} (${database.filter(item => item.medium.includes(medium)).length})</option>`);
                 }
             }
         }
