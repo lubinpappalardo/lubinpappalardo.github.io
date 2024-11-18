@@ -25,17 +25,192 @@
     <link rel="apple-touch-startup-image" href="assets/svg/favicon_light_mode.svg">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-    <!--style-->
-    <link rel="stylesheet" href="index.css">
 </head>
+
+<style>
+@import 'assets/styles/fonts.css';
+@import 'assets/styles/variables.css';
+
+* {
+    box-sizing: border-box;
+    font-family: "BDOGroteskLight", Arial, Helvetica, sans-serif;
+}
+  
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    --background: var(--black);
+    --lightBackground: var(--darkgrey);
+    --text: var(--textDarkMode);
+    --secondaryText: var(--secondaryTextDarkMode);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+    font-size: var(--textSize);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+    body {
+        max-width: 100%;
+    }
+}
+
+h1, h2, h3, h4, h1 *, h2 *, h3 *, h4 * {
+    font-family: "BoogyBrut", 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Scrollbar */
+
+/* width */
+body::-webkit-scrollbar {
+    width: 21px;
+    height: 10px;
+}
+  
+body::-webkit-scrollbar-track {
+    background: var(--background); 
+    border: none;
+    z-index: -1;
+}
+   
+body::-webkit-scrollbar-thumb {
+    background: var(--text); 
+    border-radius: 20px;
+    border: 8px solid var(--background);
+}
+  
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--secondaryText); 
+    cursor: move;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+#canvas {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+}
+
+/* ------------ */
+
+
+
+</style>
 <body>
 
-    <section style="padding: 20px;">
-        <div>Coming soon... :)
-            <a href="/artwork.html">-> Art portfolio</a>
-        </div>
+    <section>
+        <h1>My website is still in development!</h1>
+        <p>The page might look weird on your device and will probably have many bugs.</p>
+        <a href="/index_v2.html">I want to visit anyway :)</a>
+        <a href="/artwork.html">I wanna see the art porfolio</a>
+
+        <canvas id="canvas"></canvas>
     </section>
 
 </body>
+
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+            this.color = 'rgb(' + (255 - Math.random() * 100) + ', ' + (255 - Math.random() * 100) + ', ' + (255 - Math.random() * 100) + ')';
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        for (let i = 0; i < 40; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function handleParticles() {
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+            if (particles[i].x < 0 || particles[i].x > canvas.width || particles[i].y < 0 || particles[i].y > canvas.height || particles[i].size <= 0.1) {
+                particles.splice(i, 1);
+                i--;
+            }
+        }
+        if (particles.length < 40) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        handleParticles();
+        requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+
+</script>
 </html>
