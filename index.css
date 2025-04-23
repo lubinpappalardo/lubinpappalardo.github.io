@@ -23,6 +23,13 @@ body {
     --secondaryText: var(--secondaryTextDarkMode);
 }
 
+body.light {
+    --background: var(--white);
+    --lightBackground: var(--lightgrey);
+    --text: var(--textLightMode);
+    --secondaryText: var(--secondaryTextLightMode);
+}
+
 body {
     width: 100%;
     min-height: 100vh;

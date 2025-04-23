@@ -39,7 +39,7 @@
     <script src="index.js" defer></script>
     <script src="gsapAnimations.js" defer></script>
 </head>
-<body>
+<body class="">
 
     <!-- Navigation bar, website name, languages, contact -->
     <navbar id="navbar">
@@ -48,12 +48,12 @@
             <p>Lubin Pappalardo</p>
         </div>
 
-        <div class="nav_links">
+        <!-- <div class="nav_links">
             <span class="active">Home</span>
             <span>My Work</span>
             <span>About</span>
             <span>Contact</span>
-        </div>
+        </div> -->
 
         <div id="language_toggle"> <!-- Language togggle -->
             <p class='active'>EN</p>
@@ -79,6 +79,7 @@
         </div>
 
     </navbar>
+
 
     <!-- Panel menu when on smaller devices -->
     <navbar id="mobile_menu">
@@ -121,21 +122,22 @@
     </section>
 
 
-    <section id="hobby_section">
+    <section id="hobby_section" style="display: none;">
 
         <main id="hobby_section_main">
             <div id="featured_work">
                 <div><img src="assets/img/photography/image1.png" alt="Featured picture #1 - Cormorant"><p>Cormorant</p></div>
                 <div><img src="assets/img/photography/image2.png" alt="Featured picture #2 - Barred Owl"><p>Barred Owl</p></div>
-                <div><img src="assets/img/photography/image3.png" alt="Featured picture #3 - Canadian Jay"><p>Canadian Jay</p></div>
+                <!-- <div><img src="assets/img/photography/image3.png" alt="Featured picture #3 - Canadian Jay"><p>Canadian Jay</p></div> -->
                 <div><img src="assets/img/photography/image4.png" alt="Featured picture #4 - Crested Anole"><p>Crested Anole</p></div>
                 <div><img src="assets/img/photography/image5.png" alt="Featured picture #5 - Osprey"><p>Osprey</p></div>
                 <div><img src="assets/img/photography/image6.png" alt="Featured picture #6 - Burrowing Owl"><p>Burrowing Owl</p></div>
+                <div class="more" onclick="window.open('https://www.instagram.com/lubin.photography', '_blank')"><img src="assets/svg/insta.svg" alt="Instagram logo"><p>See more</p></div>
             </div>
 
-            <div id="featured_artwork">
+            <!-- <div id="featured_artwork">
                 <img src='assets/img/bufallo.JPG' alt="Charcoal artwork">
-            </div>
+            </div> -->
 
             <div class="section_info">
                 <div class="left_group">
@@ -159,8 +161,9 @@
         
                     <div class="section_desc_container">
                         <!-- --- Photography --- -->
+
                         <p class="section_desc" id="desc_photography">
-                            <button class="section_call_to_action" onclick="window.open('https://www.instagram.com/lubin.photography', '_blank')">Visit my gallery (Insta)</button>
+                            <!-- <button class="section_call_to_action" onclick="window.open('https://www.instagram.com/lubin.photography', '_blank')">Visit my gallery (Insta)</button> -->
                             <span class="section_tags">
                                 <span>#DaVinci</span>
                                 <span>#Lightroom</span>
@@ -182,9 +185,11 @@
                             </span>
                             I learned HTML, CSS and JS in mid-2022. Since then, I made many websites both for myself, for friends, clubs, school projects and clients. Rapidly, I understood the importance of UI/UX design and started using Figma before coding them. This also helped me improve my graphic design skills.
                         </p>
+
+
                         <!-- --- Art --- -->
                         <p class="section_desc" id="desc_art">
-                            <button class="section_call_to_action" onclick="document.location = '/artwork.html';">Visit my portfolio</button>
+                            <button class="section_call_to_action" onclick="document.location = '#';">Visit my portfolio</button>
                             <span class="section_tags">
                                 <span>#Graphite</span>
                                 <span>#Charcoal</span>
@@ -214,6 +219,7 @@
     <section id="footer_section">
         
         <div class="content">
+            <a rel="noopener" href="https://www.instagram.com/lubin.photography" target="_blank">Check out my photos</a>
             Hosted on Github Pages
         </div>
 

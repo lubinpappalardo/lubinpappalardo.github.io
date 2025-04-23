@@ -9,6 +9,9 @@
     --textDarkMode: hsl(0, 0%, 90%);
     --secondaryTextDarkMode: hsl(0, 0%, 50%);
 
+    --textLightMode: hsl(0, 0%, 10%);
+    --secondaryTextLightMode: hsl(0, 0%, 40%);
+
     /* --- Other Values --- */
 
     --navbarHeight: 80px;
