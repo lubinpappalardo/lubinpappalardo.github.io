@@ -113,7 +113,10 @@
     align-items: center;
     overflow: hidden;
     min-width: min-content;
-    background-color: var(--background);
+    --blur: 5px;
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+    /* background-color: var(--background); */
 
     @media only screen and (max-width: 1000px) {
         display: none;

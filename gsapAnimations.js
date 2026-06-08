@@ -39,6 +39,7 @@ gsap.to('#home_section .desc', {
 gsap.to('#home_section .home_section_image_wrap', {
     yPercent: 540,
     scale: 0.8,
+    opacity: -3, // delete
     ease: "none",
     scrollTrigger: {
         trigger: '#home_section + *',
@@ -49,17 +50,17 @@ gsap.to('#home_section .home_section_image_wrap', {
     }
 });
 
-gsap.to('#home_section .home_section_image_wrap', {
-    opacity: 0,
-    ease: "none",
-    scrollTrigger: {
-        trigger: '#hobby_section',
-        start: `${sectionHeight / 2}% bottom`,
-        end: `${sectionHeight / 2}% top`,
-        scrub: true,
-        // markers: true
-    }
-});
+// gsap.to('#home_section .home_section_image_wrap', {
+//     opacity: 0,
+//     ease: "none",
+//     scrollTrigger: {
+//         trigger: '#hobby_section',
+//         start: `${sectionHeight / 2}% bottom`,
+//         end: `${sectionHeight / 2}% top`,
+//         scrub: true,
+//         // markers: true
+//     }
+// });
 
 // Featured work ------------------------------------------
 
