@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="Lubin Pappalardo">
 
-    <meta name="description" content="Lubin Pappalardo is a 17 years old from France with many creative hobbies like photography, traditional art, graphic design and web design and development. Currently based in the UAE."/>
+    <!-- <meta name="description" content="Lubin Pappalardo is a 17 years old from France with many creative hobbies like photography, traditional art, graphic design and web design and development. Currently based in the UAE."/> -->
     <meta content="Lubin Pappalardo | 2024 Web Porfolio " property="og:title">
-    <meta content="Lubin Pappalardo is a 17 years old from France with many creative hobbies like photography, traditional art, graphic design and web design and development. Currently based in the UAE." property="og:description">
+    <!-- <meta content="Lubin Pappalardo is a 17 years old from France with many creative hobbies like photography, traditional art, graphic design and web design and development. Currently based in the UAE." property="og:description"> -->
 
     <meta name="author" content="Lubin Pappalardo" />
     <meta name="keywords" content="lubin, pappalardo, photography, art, design, website">
@@ -25,192 +25,88 @@
     <link rel="apple-touch-startup-image" href="assets/svg/favicon_light_mode.svg">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!--style-->
+    <link rel="stylesheet" href="index.css">
+
+    <!--script-->
+    <script src="assets/gsap/gsap.min.js"></script>
+    <script src="assets/gsap/ScrollTrigger.min.js"></script>
+    <script src="assets/gsap/TextPlugin.min.js"></script>
+    <script src="assets/gsap/ScrollToPlugin.min.js"></script>
+    <script src="assets/gsap/Flip.min.js"></script>
+    <script src="assets/jquery.js"></script>
+    <script src="index.js" defer></script>
+    <script src="gsapAnimations.js" defer></script>
 </head>
+<body class="">
 
-<style>
-@import 'assets/styles/fonts.css';
-@import 'assets/styles/variables.css';
+    <!-- Navigation bar, website name, languages, contact -->
+    <navbar id="navbar">
+        <div class="nav_website_name"> 
+            <img src="assets/svg/favicon_dark_mode.svg" alt="Logo 'LP'">
+            <p>Lubin Pappalardo</p>
+        </div>
 
-* {
-    box-sizing: border-box;
-    font-family: "BDOGroteskLight", Arial, Helvetica, sans-serif;
-}
-  
-html {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-}
+        <div id="language_toggle"> <!-- Language togggle -->
+            <p class='active'>EN</p>
+            <div class='language_indicator'> <!-- Bar -->
+                <div class="active"></div> <!-- Indicator of selected language -->
+            </div>
+            <p class="language_fr">FR</p>
+        </div>
 
-body {
-    --background: var(--black);
-    --lightBackground: var(--darkgrey);
-    --text: var(--textDarkMode);
-    --secondaryText: var(--secondaryTextDarkMode);
-}
+        <!-- Contact (email) -->
+        <div class="nav_contactme">
+            <div class="background"></div>
+            <p>hello@lubinpappalardo.com</p>
+        </div>
 
-body {
-    width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background: var(--background);
-    color: var(--text);
-    font-size: var(--textSize);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-}
+        <!-- Hamburger menu with custom morph to cross animation (on codepen) -->
+        <div id='hamburger_menu'>
+            <div class="container">
+                <div class="line upper"></div>
+                <!-- <div class="line middle"></div> -->
+                <div class="line lower"></div>
+            </div>
+        </div>
 
-@media (max-width: 767px) {
-    body {
-        max-width: 100%;
-    }
-}
-
-h1, h2, h3, h4, h1 *, h2 *, h3 *, h4 * {
-    font-family: "BoogyBrut", 'Times New Roman', Times, serif;
-    font-style: normal;
-    font-weight: normal;
-}
-
-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    padding: 20px;
-}
-
-/* Scrollbar */
-
-/* width */
-body::-webkit-scrollbar {
-    width: 21px;
-    height: 10px;
-}
-  
-body::-webkit-scrollbar-track {
-    background: var(--background); 
-    border: none;
-    z-index: -1;
-}
-   
-body::-webkit-scrollbar-thumb {
-    background: var(--text); 
-    border-radius: 20px;
-    border: 8px solid var(--background);
-}
-  
-body::-webkit-scrollbar-thumb:hover {
-    background: var(--secondaryText); 
-    cursor: move;
-}
-
-h1 {
-    text-transform: uppercase;
-    font-size: 2rem;
-}
-
-#canvas {
-    position: fixed;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    image-rendering: pixelated;
-}
-
-/* ------------ */
+    </navbar>
 
 
+    <!-- Panel menu when on smaller devices -->
+    <navbar id="mobile_menu">
+    </navbar>
 
-</style>
-<body>
+    <!-- Home section -->
+    <section id="home_section">
 
-    <section>
-        <h1>My website is still in development!</h1>
-        <p>The page might look weird on your device and will probably have many bugs.</p>
-        <a href="/index_v2.html">I want to visit anyway :)</a>
-        <!-- <a href="/artwork.html">I wanna see the art porfolio</a> -->
+        <div id="lubin_pronunciation_help">
+            /ly.bã/
+        </div>
 
-        <canvas id="canvas"></canvas>
+        <div class="main_content">
+
+            <p class="scroll_to_left welcome" id="welcome">Welcome! I'm</p>
+            <h1 class="scroll_to_left" id='lubin'>LUBIN</h1>
+
+            <div class="middle_row scroll_to_left">
+                <h1 id='pappalardo'>PAPPALARDO</h1>
+            </div>
+
+            <div class="scroll_to_left bottom_row">
+                <p>coming soon : </p>
+                <h1 id="portfolio">PORTFOLIO</h1>
+            </div>
+
+        </div>
+
+        <p class="desc">
+            <a rel="noopener" href="https://www.instagram.com/lubin.pappart" target="_blank">@lubin.pappart</a>
+        </p>
+        
     </section>
 
+
 </body>
-
-<script>
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles = [];
-
-    let mouseX = 0;
-    let mouseY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1;
-            this.speedX = Math.random() * 1 - 0.5;
-            this.speedY = Math.random() * 1 - 0.5;
-            this.color = 'rgb(' + (255 - Math.random() * 100) + ', ' + (255 - Math.random() * 100) + ', ' + (255 - Math.random() * 100) + ')';
-        }
-
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-        }
-    }
-
-    function init() {
-        for (let i = 0; i < 40; i++) {
-            particles.push(new Particle());
-        }
-    }
-
-    function handleParticles() {
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-            if (particles[i].x < 0 || particles[i].x > canvas.width || particles[i].y < 0 || particles[i].y > canvas.height || particles[i].size <= 0.1) {
-                particles.splice(i, 1);
-                i--;
-            }
-        }
-        if (particles.length < 40) {
-            particles.push(new Particle());
-        }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        handleParticles();
-        requestAnimationFrame(animate);
-    }
-
-    init();
-    animate();
-
-</script>
 </html>
