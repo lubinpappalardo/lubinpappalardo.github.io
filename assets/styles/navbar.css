@@ -135,7 +135,7 @@
     }
 
     p {
-        color: hsl(0, 0%, 90%);
+        color: var(--text);
         margin: 0;
         mix-blend-mode: difference;
     }
@@ -148,8 +148,8 @@
     }
 }
  
-body.light #navbar .nav_contactme p {
-    color: hsl(0, 0%, 80%) !important;
+body.light #navbar .nav_contactme p:hover {
+    color: hsl(0, 0%, 90%) !important;
 }
 
 
