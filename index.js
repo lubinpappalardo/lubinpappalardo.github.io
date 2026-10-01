@@ -1,29 +1,10 @@
 let isMobile;
-const img = $('#home_section_image');
 let cursor = {x: 0, y: 0};
 
 $(window).on('mousemove', (event) => {
     cursor.x = event.clientX;
     cursor.y = event.clientY;
 });
-
-const parallax = (element, parallaxOffset, offset, scale) => {
-    const x = ((cursor.x / (window.innerWidth * 0.5)) - 1) * parallaxOffset.x;
-    const y = ((cursor.y / (window.innerHeight * 0.5)) -1) * parallaxOffset.y;
-
-    element.css('transform', `translate(${x + offset.x}%, ${y + offset.y}%) scale(${scale})`);
-};
-
-const loop = () => {    
-    // Cancel parallax effect if mobile
-    let img_parallax_offset = !isMobile ? {x: 1, y: 0.2} : {x: 0, y: 0};
-
-    parallax(img, img_parallax_offset, {x: 0, y: 0}, 1);
-
-    requestAnimationFrame(loop);
-};
-
-loop();
 
 // --------------------------------------------------------
 
