@@ -60,39 +60,15 @@
 
     @media only screen and (max-width: 767px) {
         & {
-            flex-direction: column-reverse;
-            min-height: 100vh;
-            height: fit-content;
-            overflow-y: scroll;
+            inset: 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100dvh;
+            min-height: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+
             background-color: var(--background);
-
-            #full_view_image_container {
-                height: 60vh !important;
-                width: 90vw !important;
-            }
-
-            #full_view_image {
-                height: 100% !important;
-                max-width: 100% !important;
-                object-fit: contain !important;
-                /* max-width: 100% !important;
-                max-height: 100% !important;
-                width: 100% !important;
-                height: 100% !important; */
-                /* object-position: center center !important; */
-            }
-
-            #full_view_image_info {
-                width: 100vw !important;
-
-                h1 {
-                    margin-top: var(--padding) !important;
-                }
-
-                .desc {
-                    margin-bottom: var(--padding) !important;
-                }
-            }
         }
     }
 }
@@ -106,6 +82,15 @@
     margin-left: var(--padding);
     height: calc(100vh - 2 * var(--padding));
     overflow: hidden;
+
+    @media only screen and (max-width: 767px) {
+        & {
+            order: 1;
+            height: 60dvh;
+            width: 90vw;
+            flex-shrink: 0;
+        }
+    }
 }
 
 #full_view_image {
@@ -118,6 +103,14 @@
 
     &.scaled {
         cursor: zoom-out;
+    }
+    
+    @media only screen and (max-width: 767px) {
+        & {
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
     }
 }
 
@@ -167,6 +160,22 @@
 
             &:hover {
                 transform: scale(0.95);
+            }
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        & {
+            order: 2;
+            width: 100vw;
+            flex-shrink: 0;
+
+            h1 {
+                margin-top: var(--padding);
+            }
+
+            .desc {
+                margin-bottom: var(--padding);
             }
         }
     }
