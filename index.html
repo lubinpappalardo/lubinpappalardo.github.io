@@ -6,12 +6,12 @@
     <meta charset="UTF-8">
     <meta name="Lubin Pappalardo">
 
-    <!-- <meta name="description" content="Lubin Pappalardo is a 17 years old from France with many creative hobbies like photography, traditional art, graphic design and web design and development. Currently based in the UAE."/> -->
-    <meta content="Lubin Pappalardo | 2024 Web Porfolio " property="og:title">
-    <!-- <meta content="Lubin Pappalardo is a 17 years old from France with many creative hobbies like photography, traditional art, graphic design and web design and development. Currently based in the UAE." property="og:description"> -->
+    <meta name="description" content="Etudiant français en illustration à la HEAD Genève, Suisse"/> 
+    <meta content="Lubin Pappalardo | 2026 Porfolio " property="og:title">
+    <meta content="Etudiant français en illustration à la HEAD Genève, Suisse" property="og:description"> 
 
     <meta name="author" content="Lubin Pappalardo" />
-    <meta name="keywords" content="lubin, pappalardo, photography, art, design, website">
+    <meta name="keywords" content="lubin, pappalardo, art, website">
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark only">
@@ -23,10 +23,10 @@
     <!--apple-->
     <link rel="apple-touch-icon" href="assets/svg/favicon_light_mode.svg">
     <link rel="apple-touch-startup-image" href="assets/svg/favicon_light_mode.svg">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
 
     <!--style-->
+    <link rel="stylesheet" href="https://use.typekit.net/uju7yai.css">
     <link rel="stylesheet" href="index.css">
 
     <!--script-->
@@ -36,75 +36,64 @@
     <script src="assets/gsap/ScrollToPlugin.min.js"></script>
     <script src="assets/gsap/Flip.min.js"></script>
     <script src="assets/jquery.js"></script>
+    <script src="assets/artwork/database.js"></script>
     <script src="index.js" defer></script>
-    <script src="gsapAnimations.js" defer></script>
+    <script src="assets/artwork/artwork.js" defer></script>
+    <!-- <script src="gsapAnimations.js" defer></script> -->
 </head>
-<body class="light">
+<body>
 
     <!-- Navigation bar, website name, languages, contact -->
-    <navbar id="navbar">
-        <div class="nav_website_name"> 
-            <img src="assets/svg/favicon_dark_mode.svg" alt="Logo 'LP'">
-            <p>Lubin Pappalardo</p>
+    <section id="sidebar">
+        
+        <!-- <div id="language_toggle">
+            <p class='active'>EN</p>
+            <div class='language_indicator'> Bar -->
+                <!-- <div class="active"></div> Indicator of selected language -->
+            <!-- </div>
+            <p class="language_fr">FR</p>
+        </div> -->
+
+        <img id="name" src="assets/img/lubin_pappalardo.png" alt="Lubin Pappalardo" draggable="false"/>
+        <p id="desc">Etudiant français en illustration à la HEAD Genève, Suisse</p>
+
+        
+        <div id="categories">
+            <p onclick="filter('recent', $(this))" class="active">Récent</p>
+            <p onclick="filter('peinture-pastel', $(this))">Peintures / Pastels</p>
+            <p onclick="filter('bd-illu', $(this))">BD / Illustration</p>
+            <p onclick="filter('carnets', $(this))">Carnets</p>
+            <p onclick="filter('divers', $(this))">Divers</p>
         </div>
 
-        <div id="language_toggle"> <!-- Language togggle -->
-            <p class='active'>EN</p>
-            <div class='language_indicator'> <!-- Bar -->
-                <div class="active"></div> <!-- Indicator of selected language -->
-            </div>
-            <p class="language_fr">FR</p>
-        </div>
 
         <!-- Contact (email) -->
-        <div class="nav_contactme">
+         
+        <div class="button" onclick="window.open('http://instagram.com/lubin.pappart', '_blank', 'noopener,noreferrer')">
+            <div class="background"></div>
+            <img src="assets/svg/insta.svg"/>
+            <p>@lubin.pappart</p>
+        </div>
+        
+        <div class="button" onclick="navigator.clipboard.writeText('hello@lubinpappalardo.com');alert('Copié !');">
             <div class="background"></div>
             <p>hello@lubinpappalardo.com</p>
         </div>
+    </section>
 
-        <!-- Hamburger menu with custom morph to cross animation (on codepen) -->
+    <div id="mobile_navbar">
+        <img id="mobile_name" src="assets/img/lubin_pappalardo.png" alt="Lubin Pappalardo" draggable="false"/>
         <div id='hamburger_menu'>
             <div class="container">
                 <div class="line upper"></div>
-                <!-- <div class="line middle"></div> -->
+                <div class="line middle"></div>
                 <div class="line lower"></div>
             </div>
         </div>
-
-    </navbar>
-
-
-    <!-- Panel menu when on smaller devices -->
-    <navbar id="mobile_menu">
-    </navbar>
+    </div>
 
     <!-- Home section -->
-    <section id="home_section">
-
-        <div id="lubin_pronunciation_help">
-            /ly.bã/
-        </div>
-
-        <div class="main_content">
-
-            <p class="scroll_to_left welcome" id="welcome">Welcome! I'm</p>
-            <h1 class="scroll_to_left" id='lubin'>LUBIN</h1>
-
-            <div class="middle_row scroll_to_left">
-                <h1 id='pappalardo'>PAPPALARDO</h1>
-            </div>
-
-            <div class="scroll_to_left bottom_row">
-                <p>coming soon : </p>
-                <h1 id="portfolio">PORTFOLIO</h1>
-            </div>
-
-        </div>
-
-        <p class="desc">
-            <a rel="noopener" href="https://www.instagram.com/lubin.pappart" target="_blank">@lubin.pappart</a>
-        </p>
-        
+    <section id="gallery">
     </section>
 
 

@@ -1,13 +1,16 @@
-let container = $('#artwork');
+let container = $('#gallery');
+let sorted_db;
 
 function calculateColumnCount() {
-    const windowWidth = $(window).width();
-    if (windowWidth < 767) {
+    const windowWidth = $(container).width();
+    if (windowWidth < 500) {
+        return 1;
+    } else if (windowWidth < 750) {
         return 2;
-    } else if (windowWidth < 2000) {
-        return 4;
+    } else if (windowWidth < 1200) {
+        return 3;
     } else {
-        return 5;
+        return 4;
     }
 }
 
@@ -21,23 +24,23 @@ function loadImages(db) {
     const batchSize = 20; // Number of images to load at once
 
     for (let i = 0; i < columnCount; i++) {
-        container.append(`<div class="masonry-column" id="column-${i}"></div>`);
+        container.append(`<div class="column" id="column-${i}"></div>`);
     }
 
-    // function getShortestColumn() {
-    //     let shortestColumn = 0;
-    //     let minHeight = Infinity;
+    function getShortestColumn() {
+        let shortestColumn = 0;
+        let minHeight = Infinity;
         
-    //     for (let i = 0; i < columnCount; i++) {
-    //         let columnHeight = $(`#column-${i}`).height();
-    //         if (columnHeight < minHeight) {
-    //             minHeight = columnHeight;
-    //             shortestColumn = i;
-    //         }
-    //     }
+        for (let i = 0; i < columnCount; i++) {
+            let columnHeight = $(`#column-${i}`).height();
+            if (columnHeight < minHeight) {
+                minHeight = columnHeight;
+                shortestColumn = i;
+            }
+        }
         
-    //     return shortestColumn;
-    // }
+        return shortestColumn;
+    }
 
     function loadMoreImages() {
         if (currentIndex >= db.length) {
@@ -54,11 +57,13 @@ function loadImages(db) {
             let pathParts = item_path.split('/');
             let fileName = pathParts.pop();
             let fileNameWithoutExt = fileName.substring(0, fileName.lastIndexOf('.'));
-            let newPath = pathParts.join('/') + '/resized/' + fileNameWithoutExt + '_720p.JPG';
+            // let newPath = pathParts.join('/') + '/resized/' + fileNameWithoutExt + '_720p.JPG';
 
-            let img = $(`<img onclick="openImage($(this))" src="${newPath}" alt="${item.name}" data-original-path="${item_path}" draggable="false">`);
-            $(`#column-${column_index}`).append(img);
-            if (column_index >= columnCount - 1) { column_index = 0 } else { column_index += 1 }
+            let imgDiv = $(`<div class="img_div" data-original-path="${item_path}" onclick="openImage($(this))"><img src="${item_path}" alt="${item.name}" draggable="false"></div>`);
+            $(`#column-${getShortestColumn()}`).append(imgDiv);
+            
+            // $(`#column-${column_index}`).append(img);
+            // if (column_index >= columnCount - 1) { column_index = 0 } else { column_index += 1 }
         }
         currentIndex = endIndex;
         if (currentIndex >= db.length) {
@@ -84,32 +89,52 @@ function openImage(elem) {
     const itemData = database.find(item => item.path === src);
 
     // create full screen div
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = new Date(itemData.date).toLocaleDateString('en-US', options).replace(/(\d+)(?=,)/, (match) => {
-        const suffixes = ["th", "st", "nd", "rd"];
-        const v = match % 100;
-        return match + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
-    });
+    // const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    // const formattedDate = new Date(itemData.date).toLocaleDateString('en-US', options).replace(/(\d+)(?=,)/, (match) => {
+    //     const suffixes = ["th", "st", "nd", "rd"];
+    //     const v = match % 100;
+    //     return match + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
+    // });
 
     const fullScreen = $(`
         <div id="full_view">
-            <div id="full_view_image_container">
-                <img id="full_view_image" src="${src}" alt="${itemData.name}" draggable="false">
-            </div>
             <div id="full_view_image_info">
-                <h3>${itemData.name}</h3>
-                <p>${formattedDate}</p>
-                <p>${itemData.medium.join(', ')}</p>
+                <div id="close_full_view" class="button">
+                    <div class="background"></div>
+                    <p>Retour</p>
+                </div>
+                <h1>${itemData.name}</h1>
+                <p class="desc">${itemData.desc}</p>
+                <p class="info">${itemData.medium}</p>
+                <p class="info">${itemData.dimension}</p>
+                <p class="info">${itemData.date}</p>
+                <div id="related"></div>
+            </div>
+            <div id="full_view_image_container">
+                <img id="full_view_image" src="${src}" alt="..." draggable="false">
             </div>
         </div>
     `);
     $('body').append(fullScreen);
 
+    itemData.related.forEach(name => {
+        const relatedItem = database.find(x => x.name === name);
+
+        if (relatedItem) {
+            $(`<img src="${relatedItem.path}" alt="${relatedItem.name}" draggable="false" onclick="openImage($(this))" data-original-path="${relatedItem.path}">`).appendTo('#related');
+        }
+    });
+
     const fullViewImage = $('#full_view_image');
 
+    // close full screen 
+    $('#close_full_view').click(function(event) {
+        $('#full_view').remove();
+    });
+
     // close full screen div when click outside the image
-    $('#full_view').click(function(event) {
-        if (!$(event.target).is('img') && !$(event.target).is('#full_view_tools')) { // if click is not on the image
+    $('#full_view_image_container').click(function(event) {
+        if (!$(event.target).is('img')) { // if click is not on the image
             $('#full_view').remove();
         }
     });
@@ -150,93 +175,32 @@ function openImage(elem) {
     });
 }
 
+function filter(category, elem) {
+    $('.active').removeClass('active');
+    elem.addClass('active');
+    if (category == 'recent') {
+        container.empty();
+        loadImages(sorted_db);
+    } else {
+        let filtered_db = sorted_db.filter(item => item.tags.includes(category));
+        container.empty();
+        loadImages(filtered_db);
+    }
+};
+
 
 $(document).ready(function() {
     $('html, body').scrollTop(0);
 
     if (typeof database !== 'undefined' && Array.isArray(database)) {
 
-        let sorted_db = database.sort((a, b) => new Date(b.date) - new Date(a.date));
+        sorted_db = database.sort((a, b) => b.date.localeCompare(a.date));
         loadImages(sorted_db);
-
-        let categories = []
-        let medium_categories = []
-
-        for (let i = 0; i < sorted_db.length; i++) {
-            let item = sorted_db[i];
-            let tags = item.tags;
-            for (let j = 0; j < tags.length; j++) {
-                let tag = tags[j];
-                if (!categories.includes(tag)) {
-                    categories.push(tag);
-                    $('#category_filter').append(`<option value="${tag}">${tag} (${database.filter(item => item.tags.includes(tag)).length})</option>`);
-                }
-            }
-
-            let mediums = item.medium;
-            for (let j = 0; j < mediums.length; j++) {
-                let medium = mediums[j];
-                if (!medium_categories.includes(medium)) {
-                    medium_categories.push(medium);
-                    $('#medium_filter').append(`<option value="${medium}">${medium} (${database.filter(item => item.medium.includes(medium)).length})</option>`);
-                }
-            }
-        }
 
         // reload images on window resize
         $(window).resize(function() {
             container.empty();
             loadImages(sorted_db);
-        });
-
-        // search bar algorithm
-        $('#search_bar').on('input', function() {
-            if ($(this).val().length == 0) {
-                if (container.children().length < sorted_db.length) {
-                    container.empty();
-                    loadImages(sorted_db);
-                }
-                return;
-            }
-
-            let searchValue = $(this).val().toLowerCase();
-            let searchWords = searchValue.split(' ');
-
-            let filtered_db = sorted_db.filter(item => {
-                let itemTags = item.tags.map(tag => tag.toLowerCase());
-                let itemNameWords = item.name.toLowerCase().split(' ');
-                itemTags = itemTags.concat(itemNameWords);
-                return searchWords.some(word => itemTags.includes(word));
-            });
-
-            container.empty();
-            loadImages(filtered_db);
-        });
-
-        // medium filter
-        $('#medium_filter').on('change', function() {
-            let medium = $(this).val();
-            if (medium == 'all') {
-                container.empty();
-                loadImages(sorted_db);
-            } else {
-                let filtered_db = sorted_db.filter(item => item.medium.includes(medium));
-                container.empty();
-                loadImages(filtered_db);
-            }
-        });
-
-        // category filter
-        $('#category_filter').on('change', function() {
-            let category = $(this).val();
-            if (category == 'all') {
-                container.empty();
-                loadImages(sorted_db);
-            } else {
-                let filtered_db = sorted_db.filter(item => item.tags.includes(category));
-                container.empty();
-                loadImages(filtered_db);
-            }
         });
 
     } else {
