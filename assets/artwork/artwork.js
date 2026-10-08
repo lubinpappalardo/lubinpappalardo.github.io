@@ -96,6 +96,8 @@ function openImage(elem) {
     //     return match + (suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]);
     // });
 
+    const [year, month] = itemData.date.split("-");
+
     const fullScreen = $(`
         <div id="full_view">
             <div id="full_view_image_info">
@@ -107,7 +109,7 @@ function openImage(elem) {
                 <p class="desc">${itemData.desc}</p>
                 <p class="info">${itemData.medium}</p>
                 <p class="info">${itemData.dimension}</p>
-                <p class="info">${itemData.date}</p>
+                <p class="info">${month}.${year.slice(-2)}</p>
                 <div id="related"></div>
             </div>
             <div id="full_view_image_container">

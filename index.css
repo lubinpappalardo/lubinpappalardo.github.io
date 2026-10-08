@@ -94,10 +94,12 @@ section {
         mix-blend-mode: exclusion;
     }
 
-    &:hover {
-        .background {
-            height: 800%;
-            right: -5%;
+    @media only screen and (min-width: 769px) {
+        &:hover {
+            .background {
+                height: 800%;
+                right: -5%;
+            }
         }
     }
 }
